@@ -1,0 +1,22 @@
+@import "root.scss";
+
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+:global(*) {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Varela Round', sans-serif;
+
+}
+
+:global(a) {
+    color: var(--white);
+    text-decoration: none;
+}
+
+:global(body) {
+    background-color: var(--secondary);
+    color: var(--white);
+    height: 100vh;
+}
