@@ -1,4 +1,4 @@
-<style lang="scss">
+<style lang="scss" global>
     @import "../styles/global.scss";
 </style>
 
@@ -6,6 +6,7 @@
 	import Footer from "../components/global/Footer.svelte";
     import NavBar from "../components/global/NavBar.svelte"
 </script>
+
 
 <NavBar/>
 <slot/>

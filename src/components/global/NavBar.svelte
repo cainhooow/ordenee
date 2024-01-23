@@ -7,31 +7,6 @@
 
 </script>
 
-<nav class="navbar">
-    <section class="app-title">
-        <a href="/">
-            <h1>Ordenee</h1>
-        </a>
-    </section>
-    <section class="app-discover">
-        <a class="{currentRoute('/clientes') ? "active" : "" }" href="/clientes">
-            Clientes
-        </a>
-        <a class="{currentRoute('/tecnicos') ? "active" : "" }" href="/tecnicos">
-            Tecnicos
-        </a>
-        <a class="{currentRoute('/equipamentos') ? "active" : "" }" href="/equipamentos">
-            Equipamentos
-        </a>
-        <a class="{currentRoute('/ordens') ? "active" : "" }" href="/ordens">
-            Ordens
-        </a>
-        <a class="{currentRoute('/empresa') ? "active" : "" }" href="/empresa">
-            Empresa
-        </a>
-    </section>
-</nav>
-
 <style lang="scss">
     .navbar {
         display: flex;
@@ -104,3 +79,28 @@
     }
     
 </style>
+
+<nav class="navbar">
+    <section class="app-title">
+        <a href="/">
+            <h1>Ordenee</h1>
+        </a>
+    </section>
+    <section class="app-discover">
+        <a class="{currentRoute('/clientes') ? "active" : "" }" href="/clientes">
+            Clientes
+        </a>
+        <a class="{currentRoute('/tecnicos') ? "active" : "" }" href="/tecnicos">
+            Tecnicos
+        </a>
+        <a class="{currentRoute('/equipamentos') ? "active" : "" }" href="/equipamentos">
+            Equipamentos
+        </a>
+        <a class="{currentRoute('/ordens') ? "active" : "" }" href="/ordens">
+            Ordens
+        </a>
+        <a class="{currentRoute('/empresa') ? "active" : "" }" href="/empresa">
+            Empresa
+        </a>
+    </section>
+</nav>

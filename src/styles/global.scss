@@ -1,4 +1,5 @@
 @import "root.scss";
+@import "buttons/default.scss";
 
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
@@ -20,3 +21,10 @@
     color: var(--white);
     height: 100vh;
 }
+
+:global(.container) {
+    padding: 0 3.5rem;
+}
+
+
+@import "paddings/default.scss";

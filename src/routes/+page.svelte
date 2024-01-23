@@ -2,74 +2,6 @@
     import NavBar from "../components/global/NavBar.svelte";
 </script>
 
-<main>
-    <section class="container app-presentation">
-        <img src="https://imgs.search.brave.com/slGWKEt6NESzb0I9OeIUX_gRN2p5ZHGA9fcWIas8s_g/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1wc2Qv/YmVhdXRpZnVsLWxh/cHRvcC1zY3JlZW4t/bW9ja3VwLWFkLXdp/dGgtcHJlc2VudGF0/aW9uLXNsaWRlc181/Mzg3Ni05ODc5MC5q/cGc_c2l6ZT02MjYm/ZXh0PWpwZw" alt="presentation">
-        <div class="pre-bg-metadata">
-            <section class="pre-metadata">
-                <h1>Olá, seja bem-vindo ao Ordenee!</h1>
-                <p>Obrigado por utilizar nossos serviços. O Ordenee foi feito para gerenciar seus
-                    serviços, clientes e a sua empresa!
-                    <br><br>
-                    Aqui está um guia de começo: <br><br>
-                    - Optar primeiramente em configurar os tecnicos, formas de pagamento e equipamentos, clientes são
-                    adicionados quando uma nova ordem é criada;<br><br>
-                    - Ordens: Todas as ordens podem ser encontradas na Tab "Ordens";<br><br>
-                    - Empresa: O sistema pode ser modificado de acordo com a sua empresa, você pode
-                    adicionar sua logo e informações adicionais.
-                </p>
-            </section>
-        </div>   
-    </section>
-    <section class="container app-fastaccess">
-        <section class="app-fastaccess-header">
-            <i class="ri-menu-line"></i>
-            <h1>Acesso rapido</h1>
-        </section>
-        <section class="app-fastaccess-items">
-            <a href="/clientes" type="button">
-                <i class="ri-team-fill"></i>
-                Clientes
-            </a>
-            
-            <a href="/tecnicos" type="button">
-                <i class="ri-team-fill"></i>
-                Tecnicos
-            </a>
-
-            <a href="/equipamentos/new-equipament" type="button">
-                <i class="ri-briefcase-2-line"></i>
-                Adicionar equipamento
-            </a>
-            
-            <a href="/equipamentos" type="button">
-                <i class="ri-briefcase-2-line"></i>
-                Equipamentos
-            </a>
-            
-            <a href="/pagform" type="button">
-                <i class="ri-bank-card-line"></i>
-                Formas de pagamento
-            </a>
-
-            <a href="/ordens/new-order" type="button">
-                <i class="ri-article-line"></i>
-                Nova OS
-            </a>
-    
-            <a href="/ordens" type="button">
-                <i class="ri-article-line"></i>
-                Ordens
-            </a>
-    
-            <a href="/empresa" type="button">
-                <i class="ri-shake-hands-line"></i>
-                Empresa
-            </a>
-        </section>
-    </section>
-</main>
-
 <style lang="scss">
     .app-presentation {
         position: relative;
@@ -169,3 +101,71 @@
         color: var(--white);
     }
 </style>
+
+<main>
+    <section class="app-presentation">
+        <img src="https://imgs.search.brave.com/slGWKEt6NESzb0I9OeIUX_gRN2p5ZHGA9fcWIas8s_g/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1wc2Qv/YmVhdXRpZnVsLWxh/cHRvcC1zY3JlZW4t/bW9ja3VwLWFkLXdp/dGgtcHJlc2VudGF0/aW9uLXNsaWRlc181/Mzg3Ni05ODc5MC5q/cGc_c2l6ZT02MjYm/ZXh0PWpwZw" alt="presentation">
+        <div class="pre-bg-metadata">
+            <section class="pre-metadata">
+                <h1>Olá, seja bem-vindo ao Ordenee!</h1>
+                <p>Obrigado por utilizar nossos serviços. O Ordenee foi feito para gerenciar seus
+                    serviços, clientes e a sua empresa!
+                    <br><br>
+                    Aqui está um guia de começo: <br><br>
+                    - Optar primeiramente em configurar os tecnicos, formas de pagamento e equipamentos, clientes são
+                    adicionados quando uma nova ordem é criada;<br><br>
+                    - Ordens: Todas as ordens podem ser encontradas na Tab "Ordens";<br><br>
+                    - Empresa: O sistema pode ser modificado de acordo com a sua empresa, você pode
+                    adicionar sua logo e informações adicionais.
+                </p>
+            </section>
+        </div>   
+    </section>
+    <section class="container app-fastaccess">
+        <section class="app-fastaccess-header">
+            <i class="ri-menu-line"></i>
+            <h1>Acesso rapido</h1>
+        </section>
+        <section class="app-fastaccess-items">
+            <a href="/clientes" type="button">
+                <i class="ri-team-fill"></i>
+                Clientes
+            </a>
+            
+            <a href="/tecnicos" type="button">
+                <i class="ri-team-fill"></i>
+                Tecnicos
+            </a>
+
+            <a href="/equipamentos/new-equipament" type="button">
+                <i class="ri-briefcase-2-line"></i>
+                Adicionar equipamento
+            </a>
+            
+            <a href="/equipamentos" type="button">
+                <i class="ri-briefcase-2-line"></i>
+                Equipamentos
+            </a>
+            
+            <a href="/pagform" type="button">
+                <i class="ri-bank-card-line"></i>
+                Formas de pagamento
+            </a>
+
+            <a href="/ordens/new-order" type="button">
+                <i class="ri-article-line"></i>
+                Nova OS
+            </a>
+    
+            <a href="/ordens" type="button">
+                <i class="ri-article-line"></i>
+                Ordens
+            </a>
+    
+            <a href="/empresa" type="button">
+                <i class="ri-shake-hands-line"></i>
+                Empresa
+            </a>
+        </section>
+    </section>
+</main>
