@@ -83,7 +83,7 @@
 <nav class="navbar">
     <section class="app-title">
         <a href="/">
-            <h1>Ordenee</h1>
+            <h1>Ordenne</h1>
         </a>
     </section>
     <section class="app-discover">

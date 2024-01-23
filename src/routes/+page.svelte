@@ -1,17 +1,18 @@
 <script lang="ts">
     import NavBar from "../components/global/NavBar.svelte";
+    import OrdeneeBanner from "../assets/OrdeneeFull.png";
 </script>
 
 <style lang="scss">
     .app-presentation {
         position: relative;
-        margin: 1.5rem .8rem;
+        //margin: 1.5rem .8rem;
         overflow: hidden;
     }
     .app-presentation img {
         width: 100%;
-        height: 380px;
-        border-radius: .5rem;
+        height: 450px;
+        //border-radius: .5rem;
         object-fit: cover;
     }
 
@@ -21,9 +22,9 @@
         display: flex;
         align-items: end;
         background: linear-gradient(10deg, #000, #00000054);
-        border-radius: .5rem;
+        //border-radius: .5rem;
         width: 100%;
-        height: 380px;
+        height: 450px;
         top: 0;
         bottom: 0;
     }
@@ -103,12 +104,12 @@
 </style>
 
 <main>
-    <section class="app-presentation">
-        <img src="https://imgs.search.brave.com/slGWKEt6NESzb0I9OeIUX_gRN2p5ZHGA9fcWIas8s_g/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1wc2Qv/YmVhdXRpZnVsLWxh/cHRvcC1zY3JlZW4t/bW9ja3VwLWFkLXdp/dGgtcHJlc2VudGF0/aW9uLXNsaWRlc181/Mzg3Ni05ODc5MC5q/cGc_c2l6ZT02MjYm/ZXh0PWpwZw" alt="presentation">
+    <section class="app-presentation pb-1.5">
+        <img src={OrdeneeBanner} alt="presentation">
         <div class="pre-bg-metadata">
             <section class="pre-metadata">
-                <h1>Olá, seja bem-vindo ao Ordenee!</h1>
-                <p>Obrigado por utilizar nossos serviços. O Ordenee foi feito para gerenciar seus
+                <h1>Olá, seja bem-vindo ao Ordenne!</h1>
+                <p>Obrigado por utilizar nossos serviços. O Ordenne foi feito para gerenciar seus
                     serviços, clientes e a sua empresa!
                     <br><br>
                     Aqui está um guia de começo: <br><br>
