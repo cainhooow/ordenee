@@ -22,3 +22,26 @@ button.\:hover-def:hover {
     color: var(--white);
     
 }
+
+a[type="button"] {
+    background: #fff;
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    color: var(--primary);
+    padding: .5rem 1.5rem;
+    margin: .5rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    border: none;
+    transition: all 100ms ease-in;
+}
+
+a i {
+    font-size: 1rem;
+}
+
+a[type="button"]:hover {
+    background-color: var(--primary);
+    color: var(--white);
+}
