@@ -4,14 +4,14 @@
 
 <ClientHeader justifyContent="space-between">
 	<div slot="actions-additionals">
-		<a href="/clientes">
+		<a href="/tecnicos">
 			<i class="ri-arrow-left-s-line"></i> Voltar
 		</a>
 	</div>
 </ClientHeader>
 
 <main class="container pt-1.5 animation-showing" style="--delay: 1.5s">
-	<h1>Adicionar novo cliente</h1>
+	<h1>Adicionar novo tecnico</h1>
 	<p class="text-gray">Campos com "<span class="text-danger">*</span>" são obrigatorios</p>
 	<form action="POST" class="pt-1.5">
 		<section class="fclient-control">

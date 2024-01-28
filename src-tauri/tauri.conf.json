@@ -6,8 +6,8 @@
     "distDir": "../build"
   },
   "package": {
-    "productName": "servicerorder",
-    "version": "0.1.0"
+    "productName": "ordenne",
+    "version": "0.0.7-20240125150626-GLeeR"
   },
   "tauri": {
     "allowlist": {
@@ -56,8 +56,8 @@
       {
         "fullscreen": false,
         "height": 800,
-        "resizable": true,
-        "title": "servicerorder",
+        "resizable": false,
+        "title": "Ordenne",
         "width": 800
       }
     ]
