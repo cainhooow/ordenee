@@ -39,48 +39,25 @@
 	.cliente-card {
 		position: relative;
 		padding: 1.5rem;
-		background: var(--primary);
+		background: var(--primary-opacity-1);
 		border-radius: 0.5rem;
 		transition: all 200ms ease-in-out;
-		border-left: 0.5px solid var(--secondary);
+		border: 0.5px solid var(--white);
 		z-index: 1;
 		overflow: hidden;
-	}
 
-	.cliente-card:before {
-		content: '';
-		position: absolute;
-		width: 10%;
-		transform: skewX(-20deg) translateY(280px);
-		height: 100%;
-		top: 0;
-		right: 3rem;
-		transition: all 200ms ease-in-out;
-		background-color: var(--white);
-		z-index: 0;
-	}
+		.cliente-header {
+			display: flex;
+			flex-direction: column;
+			// padding: 1.5rem;
+			h1 {
+				font-size: 1.5rem;
+			}
 
-	.cliente-card:hover::before {
-		transform: skewX(-20deg) translateY(0);
-	}
-
-	.cliente-card:hover {
-		border-left-color: var(--white);
-		border-radius: 0 0.5rem 0.5rem 0;
-	}
-
-	.cliente-card .cliente-header {
-		display: flex;
-		flex-direction: column;
-		// padding: 1.5rem;
-	}
-
-	.cliente-header h1 {
-		font-size: 1.5rem;
-	}
-
-	.cliente-header span {
-		color: darkgray;
+			span {
+				color: darkgray;
+			}
+		}
 	}
 
 	.cliente-info {

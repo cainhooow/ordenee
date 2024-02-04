@@ -17,20 +17,20 @@
 		<section class="fclient-control">
 			<div class="floating-input">
 				<input type="text" placeholder="nome" name="nome" id="nome" required />
-				<label for="nome"> Nome<span class="text-danger">*</span> </label>
+				<label for="nome"> Nome <span class="text-danger">*</span> </label>
 			</div>
 			<div class="floating-input">
 				<input type="email" placeholder="email" name="email" id="email" required />
-				<label for="email"> Email<span class="text-danger">*</span> </label>
+				<label for="email"> Email <span class="text-danger">*</span> </label>
 			</div>
 		</section>
 		<section class="fclient-control pt-1.5">
 			<div class="floating-input">
-				<input type="text" placeholder="nome" name="nome" id="nome"/>
+				<input type="text" placeholder="nome" name="nome" id="nome" />
 				<label for="nome"> CPF </label>
 			</div>
 			<div class="floating-input">
-				<input type="telephony" placeholder="telefone" name="telefone" id="telefone"/>
+				<input type="telephony" placeholder="telefone" name="telefone" id="telefone" />
 				<label for="telefone"> Telefone </label>
 			</div>
 		</section>
@@ -51,13 +51,13 @@
 	.fclient-control {
 		display: flex;
 		gap: 0.5rem;
-	}
 
-	.fclient-control .floating-input {
-		width: 100%;
-	}
+		.floating-input {
+			width: 100%;
+		}
 
-	.fclient-control .floating-input input {
-		width: 100%;
+		.floating-input input {
+			width: 100%;
+		}
 	}
 </style>

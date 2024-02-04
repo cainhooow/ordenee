@@ -3,7 +3,7 @@ input {
     padding: 0.8rem;
     border: none;
     border-radius: 0.3rem;
-    background-color: var(--primary);
+    background-color: var(--secondary);
     font-size: 1.1rem;
     color: var(--white);
     outline-offset: 1px;
@@ -25,7 +25,7 @@ input {
     transform: translateX(3px) translateY(14px);
     padding: 0 0.5rem;
     z-index: 1;
-    background-color: var(--primary);
+    background-color: var(--secondary);
     color: darkgray;
     transition: all 200ms ease-in-out;
 }

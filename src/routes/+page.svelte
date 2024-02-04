@@ -77,41 +77,42 @@
 		position: relative;
 		//margin: 1.5rem .8rem;
 		overflow: hidden;
-	}
-	.app-presentation img {
-		width: 100%;
-		height: 450px;
-		//border-radius: .5rem;
-		object-fit: cover;
-	}
 
-	.app-presentation .pre-bg-metadata {
-		position: absolute;
-		display: flex;
-		align-items: end;
-		background: linear-gradient(10deg, #000, #00000054);
-		//border-radius: .5rem;
-		width: 100%;
-		height: 450px;
-		top: 0;
-		bottom: 0;
-	}
+		img {
+			width: 100%;
+			height: 450px;
+			//border-radius: .5rem;
+			object-fit: cover;
+		}
 
-	.app-presentation .pre-bg-metadata .pre-metadata {
-		display: flex;
-		width: 80%;
-		flex-direction: column;
-		padding: 1.2rem;
-		color: var(--white);
-	}
+		.pre-bg-metadata {
+			position: absolute;
+			display: flex;
+			align-items: end;
+			background: linear-gradient(10deg, #000, #00000054);
+			//border-radius: .5rem;
+			width: 100%;
+			height: 450px;
+			top: 0;
+			bottom: 0;
 
-	.pre-metadata h1 {
-		font-size: 1.5rem;
-	}
+			.pre-metadata {
+				display: flex;
+				width: 80%;
+				flex-direction: column;
+				padding: 1.2rem;
+				color: var(--white);
 
-	.pre-metadata p {
-		font-size: 1rem;
-		margin: 0.5rem 0;
+				h1 {
+					font-size: 1.5rem;
+				}
+
+				p {
+					font-size: 1rem;
+					margin: 0.5rem 0;
+				}
+			}
+		}
 	}
 
 	.app-fastaccess-header {
@@ -119,13 +120,12 @@
 		align-items: center;
 		padding: 0.5rem 1.5rem;
 		gap: 0.5rem;
-		background-color: var(--primary);
+		background-color: var(--secondary);
 		border-radius: 0.5rem 0.5rem 0 0;
-	}
 
-	.app-fastaccess-header h1,
-	i {
-		font-size: 1.5rem;
+		h1, i {
+			font-size: 1.5rem;
+		}
 	}
 
 	.app-fastaccess {
@@ -133,38 +133,39 @@
 		width: 100%;
 		flex-direction: column;
 		padding: 0.5rem 0.9rem;
+		
+		.app-fastaccess-items {
+			display: flex;
+			width: 100%;
+			flex-direction: row;
+			flex-wrap: wrap;
+			flex-basis: 100px;
+			padding: 1rem;
+			background: linear-gradient(190deg, var(--primary-opacity-1), var(--secondary));
+	
+			a[type='button'] {
+				background: #fff;
+				display: flex;
+				gap: 0.5rem;
+				align-items: center;
+				color: var(--primary);
+				padding: 0.5rem 1.5rem;
+				margin: 0.5rem;
+				border-radius: 0.5rem;
+				cursor: pointer;
+				border: none;
+				transition: all 100ms ease-in;
+	
+				li {
+					font-size: 1rem;
+				}
+	
+				&:hover {
+					background-color: var(--primary);
+					color: var(--white);
+				}
+			}
+		}
 	}
 
-	.app-fastaccess-items {
-		display: flex;
-		width: 100%;
-		flex-direction: row;
-		flex-wrap: wrap;
-		flex-basis: 100px;
-		padding: 1rem;
-		background: linear-gradient(190deg, var(--primary-opacity-1), var(--secondary));
-	}
-
-	.app-fastaccess-items a[type='button'] {
-		background: #fff;
-		display: flex;
-		gap: 0.5rem;
-		align-items: center;
-		color: var(--primary);
-		padding: 0.5rem 1.5rem;
-		margin: 0.5rem;
-		border-radius: 0.5rem;
-		cursor: pointer;
-		border: none;
-		transition: all 100ms ease-in;
-	}
-
-	.app-fastaccess-items a i {
-		font-size: 1rem;
-	}
-
-	.app-fastaccess-items a[type='button']:hover {
-		background-color: var(--primary);
-		color: var(--white);
-	}
 </style>
