@@ -12,6 +12,7 @@
 			<i class="ri-calendar-line"></i> Criado em: {new Date(cliente.createdAt).toLocaleDateString(
 				'pt-br'
 			)}
+			
 			as {new Date(cliente.createdAt).toLocaleTimeString('pt-br')}
 		</span>
 		<span class="pt-1.5">
@@ -39,10 +40,10 @@
 	.cliente-card {
 		position: relative;
 		padding: 1.5rem;
-		background: var(--primary-opacity-1);
+		background: var(--primary-opacity-2);
 		border-radius: 0.5rem;
 		transition: all 200ms ease-in-out;
-		border: 0.5px solid var(--white);
+		border: 0.5px solid #2d2d2d;
 		z-index: 1;
 		overflow: hidden;
 

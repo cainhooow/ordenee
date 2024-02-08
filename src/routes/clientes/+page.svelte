@@ -2,7 +2,7 @@
 	import ClientHeader from '../../components/clientes/ClientHeader.svelte';
 	import ClienteCard from '../../components/clientes/ClienteCard.svelte';
 	import NavBar from '../../components/global/NavBar.svelte';
-
+	
 	let clientes = [
 		{
 			name: 'João Silva',
