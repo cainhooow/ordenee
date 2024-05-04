@@ -1,6 +1,4 @@
 use ::std::fs::DirBuilder;
-use ::std::os;
-use std::process::Command;
 
 pub struct AppDirStruct {
     pub dirname: String,
@@ -8,26 +6,50 @@ pub struct AppDirStruct {
 }
 
 impl AppDirStruct {
-    pub fn build_app_dir() {
-        println!("build_app_dir(): called");
+    pub fn create() {
+        println!("create(): called");
 
         if cfg!(windows) {
-            let child_result = Command::new("echo %USERNAME%")
-                .output()
-                .expect("[:ORDENEE:] Failed to get current user");
+            let user_name = std::env::var("username").expect("NOT FOUND");
+            let data_dir = "C:\\Users\\{user_name}\\AppData\\Local\\Ordenee"
+                .replace("{user_name}", &user_name);
+                
+            match DirBuilder::new().create(data_dir) {
+                Ok(()) => {
+                    println!("[:ORDENEE:filesystem] Data dir created");
+                },
+                Err(e) => {
+                    println!("[:ORDENEE:filesystem] Failed to create data dir already exists: {e}");
+                }
+            }
 
-            let user_name = String::from_utf8_lossy(&child_result.stdout);
-            let user_name = String::from(user_name);
-            let data_dir = "C:\\Users\\{user_name}\\AppData\\Local\\Ordenee".replace("{user_name}", &user_name);
-
-            DirBuilder::new().create(data_dir).expect("[:ORDENEE:] Failed to create data dir");
         } else {
             let user_name = std::env::var("USER").expect("NOT FOUND");
             let data_dir = "/home/{user_name}/.Ordenee".replace("{user_name}", &user_name);
-            println!("Data dir: {data_dir}");
 
+            match DirBuilder::new().create(data_dir) {
+                Ok(()) => {
+                    println!("[:ORDENEE:filesystem] Data dir created")
+                },
+                Err(e) => {
+                    println!("[:ORDENEE:filesystem] Failed to create data dir already exists: {e}");
+                }
+            }
+        }
+    }
 
-            DirBuilder::new().create(data_dir).expect("[:ORDENEE:] Failed to create data dir");
-        }    
+    pub fn get() -> String {
+        if cfg!(windows) {
+            let user_name = std::env::var("username").expect("NOT FOUND");
+            let data_dir = "C:\\Users\\{user_name}\\AppData\\Local\\Ordenee"
+                .replace("{user_name}", &user_name);
+
+            return data_dir;
+        } else {
+            let user_name = std::env::var("USER").expect("NOT FOUND");
+            let data_dir = "/home/{user_name}/.Ordenee".replace("{user_name}", &user_name);
+            
+            return data_dir;
+        }
     }
 }
