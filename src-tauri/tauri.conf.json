@@ -7,7 +7,7 @@
   },
   "package": {
     "productName": "ordenne",
-    "version": "0.0.8-20240128200900-WLAEl"
+    "version": "0.0.8"
   },
   "tauri": {
     "allowlist": {

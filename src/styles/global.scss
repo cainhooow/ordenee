@@ -16,6 +16,10 @@
     animation: showing var(--delay);
 }
 
+::-webkit-scrollbar {
+    width: 0;
+}
+
 @keyframes showing {
     from {
         opacity: 0;
