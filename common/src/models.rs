@@ -5,9 +5,10 @@ use diesel::prelude::*;
 #[diesel(check_for_backend(diesel::sqlite::Sqlite))]
 pub struct Clients {
     pub id: i32,
-    pub name: Option<String>,
-    pub person_id: String,
-    pub tel_num: Option<String>,
+    pub name: String,
+    pub email: Option<String>,
+    pub person_id: Option<String>,
+    pub tel_num: Option<String>
 }
 
 #[derive(Queryable, Selectable)]
@@ -15,11 +16,11 @@ pub struct Clients {
 #[diesel(check_for_backend(diesel::sqlite::Sqlite))]
 pub struct Equipaments {
     pub id: i32,
-    pub name: Option<String>,
-    pub serie: String,
-    pub model: Option<String>,
-    pub description: String,
-    pub barcode: i32
+    pub name: String,
+    pub serie: Option<String>,
+    pub model: String,
+    pub description: Option<String>,
+    pub barcode: Option<i32>
 }
 
 #[derive(Queryable, Selectable)]
@@ -27,5 +28,5 @@ pub struct Equipaments {
 #[diesel(check_for_backend(diesel::sqlite::Sqlite))]
 pub struct PaymentMethods {
     pub id: i32,
-    pub name: Option<String>
+    pub name: String
 }

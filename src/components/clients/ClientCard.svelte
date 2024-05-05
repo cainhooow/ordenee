@@ -1,30 +1,30 @@
 <script lang="ts">
-	export let cliente: any = {};
+	export let client: any = {};
 </script>
 
-<section class="cliente-card animation-showing" style="--delay: 1.5s">
-	<div class="cliente-header">
-		<div class="cliente-info">
-			<h1 class="cliente-profile">{cliente.name.slice()[0]}</h1>
-			<h1>{cliente.name}</h1>
+<section class="client-card animation-showing" style="--delay: 1.5s">
+	<div class="client-header">
+		<div class="client-info">
+			<h1 class="client-profile">{client.name.slice()[0]}</h1>
+			<h1>{client.name}</h1>
 		</div>
 		<span class="pt-1.5">
-			<i class="ri-calendar-line"></i> Criado em: {new Date(cliente.createdAt).toLocaleDateString(
+			<i class="ri-calendar-line"></i> Criado em: {new Date(client.createdAt).toLocaleDateString(
 				'pt-br'
 			)}
 			
-			as {new Date(cliente.createdAt).toLocaleTimeString('pt-br')}
+			as {new Date(client.createdAt).toLocaleTimeString('pt-br')}
 		</span>
 		<span class="pt-1.5">
 			<i class="ri-phone-line"></i>
-			{cliente.telnum}
+			{client.telnum}
 		</span>
 		<span class="pt-0.5">
 			<i class="ri-mail-line"></i>
-			{cliente.email}
+			{client.email}
 		</span>
 	</div>
-	<div class="cliente-actions pt-1.5">
+	<div class="client-actions pt-1.5">
 		<button>
 			<i class="ri-delete-bin-line"></i>
 			Deletar
@@ -37,7 +37,7 @@
 </section>
 
 <style lang="scss">
-	.cliente-card {
+	.client-card {
 		position: relative;
 		padding: 1.5rem;
 		background: var(--primary-opacity-2);
@@ -47,7 +47,7 @@
 		z-index: 1;
 		overflow: hidden;
 
-		.cliente-header {
+		.client-header {
 			display: flex;
 			flex-direction: column;
 			// padding: 1.5rem;
@@ -61,13 +61,13 @@
 		}
 	}
 
-	.cliente-info {
+	.client-info {
 		display: flex;
 		align-items: center;
 		gap: 1.5rem;
 	}
 
-	.cliente-profile {
+	.client-profile {
 		display: flex;
 		align-items: center;
 		justify-content: center;

@@ -19,13 +19,13 @@
 		</a>
 	</section>
 	<section class="app-discover">
-		<a class={routeMatch(['/clientes', '/clientes/new-client']) ? 'active' : ''} href="/clientes">
+		<a class={routeMatch(['/clients', '/clients/new-client']) ? 'active' : ''} href="/clients">
 			Clientes
 		</a>
-		<a class={routeMatch(['/tecnicos']) ? 'active' : ''} href="/tecnicos"> Tecnicos </a>
+		<a class={routeMatch(['/technicals']) ? 'active' : ''} href="/technicals"> Tecnicos </a>
 		<a
-			class={routeMatch(['/equipamentos', '/equipamentos/new-equipament']) ? 'active' : ''}
-			href="/equipamentos"
+			class={routeMatch(['/equipaments', '/equipaments/new-equipament']) ? 'active' : ''}
+			href="/equipaments"
 		>
 			Equipamentos
 		</a>

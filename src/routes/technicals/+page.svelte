@@ -1,8 +1,8 @@
 <script lang="ts">
-	import ClientHeader from '../../components/clientes/ClientHeader.svelte';
-	import ClienteCard from '../../components/clientes/ClienteCard.svelte';
 	import NavBar from '../../components/global/NavBar.svelte';
-	
+	import ClientHeader from '../../components/clients/ClientHeader.svelte';
+	import ClientCard from '../../components/clients/ClientCard.svelte';
+
 	let clientes = [
 		{
 			name: 'João Silva',
@@ -55,20 +55,21 @@
 			cpf: '444.555.666-77'
 		}
 	];
+
 </script>
 
 <main>
-	<ClientHeader title={'Clientes'}>
+	<ClientHeader title={'Tecnicos'}>
 		<div slot="buttons-actions">
-			<a href="/clientes/new-client" class=":hover-def with-ic" type="button">
+			<a href="/technicals/new-tecnique" class=":hover-def with-ic" type="button">
 				<i class="ri-user-add-line"></i>
-				Novo cliente
+				Novo tecnico
 			</a>
 		</div>
 	</ClientHeader>
 	<section class="container clients p-1.5">
 		{#each clientes as cliente}
-			<ClienteCard {cliente} />
+			<ClientCard client={cliente} />
 		{/each}
 	</section>
 </main>
