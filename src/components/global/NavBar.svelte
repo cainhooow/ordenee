@@ -40,7 +40,7 @@
 		align-items: center;
 		justify-content: space-between;
 
-		background-color: var(--primary);
+		background-color: var(--secondary);
 		padding: 1.5rem;
 
 		.app-title {
@@ -56,7 +56,7 @@
 				position: relative;
 				z-index: 1;
 				padding: .5rem;
-				background-color: var(--primary);
+				background-color: var(--secondary);
 
 				&.active {
 					background-color: var(--white);

@@ -3,7 +3,8 @@ button {
     border: none;
     cursor: pointer;
     border-radius: .3rem;
-    background-color: var(--white);
+    background-color: var(--btn-default-bg);
+    color: var(--btn-default-text);
     font-size: .9rem;
 }
 
@@ -19,16 +20,16 @@ button.\:hover-def {
 
 button.\:hover-def:hover {
     background-color: var(--primary);
-    color: var(--white);
+    color: var(--btn-default-bg-hover);
     
 }
 
 a[type="button"] {
-    background: #fff;
+    background: var(--btn-default-bg);
+    color: var(--btn-default-text);
     display: flex;
     gap: .5rem;
     align-items: center;
-    color: var(--primary);
     padding: .5rem 1.5rem;
     margin: .5rem;
     border-radius: .5rem;
@@ -42,6 +43,6 @@ a i {
 }
 
 a[type="button"]:hover {
-    background-color: var(--primary);
+    background-color: var(--btn-default-hover-bg);
     color: var(--white);
 }

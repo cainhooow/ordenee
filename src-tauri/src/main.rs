@@ -4,14 +4,12 @@
 use common::{database::Database, fs::AppDirStruct};
 
 fn main() {
-  std::env::set_var("WEBKIT_DISABLE_COMPOSITING_MODE", "1");
+    std::env::set_var("WEBKIT_DISABLE_COMPOSITING_MODE", "1");
 
-  AppDirStruct::create();
-  Database::init();
-  
+    AppDirStruct::create();
+    Database::init();
 
-  tauri::Builder::default()
-    .run(tauri::generate_context!())
-    .expect("error while running tauri application");
-
+    tauri::Builder::default()
+        .run(tauri::generate_context!())
+        .expect("error while running tauri application");
 }

@@ -16,6 +16,6 @@
 		display: flex;
 		justify-content: var(--chd_justify-content);
 		align-items: center;
-		background: linear-gradient(190deg, var(--primary-opacity-1), var(--secondary));
+		background: linear-gradient(360deg, transparent, var(--secondary));
 	}
 </style>
