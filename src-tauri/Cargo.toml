@@ -15,17 +15,17 @@ members = [
 ]
 
 [build]
-rustflags = ["-z", "threads=8"]
-
+rustflags = ["-z", "threads=8", "-Zlocation-detail=none", "--remap-path-prefix"]
 
 [profile.release]
 opt-level = "s"
+codegen-units = 256
 overflow-checks = false
 debug-assertions = false
 lto = true
 debug = false
 panic = "abort"
-
+strip = "none"
 
 [build-dependencies]
 tauri-build = { version = "1.5.1", features = [] }

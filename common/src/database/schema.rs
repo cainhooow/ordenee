@@ -1,5 +1,5 @@
 diesel::table! {
-    clients {
+    clients(id) {
         id -> Integer,
         name -> VarChar,
         email -> Nullable<VarChar>,
@@ -9,7 +9,7 @@ diesel::table! {
 }
 
 diesel::table! {
-    equipaments {
+    equipaments(id) {
         id -> Integer,
         name -> VarChar,
         serie -> Nullable<VarChar>,
@@ -20,7 +20,7 @@ diesel::table! {
 }
 
 diesel::table! {
-    paymentmethods {
+    paymentmethods(id) {
         id -> Integer,
         name -> VarChar
     }

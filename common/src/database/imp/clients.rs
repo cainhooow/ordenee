@@ -7,7 +7,7 @@ use crate::database::{models::Clients, schema, Database};
 #[derive(Insertable)]
 #[diesel(table_name = schema::clients)]
 pub struct ClientBase<'r> {
-    pub name: &'r str
+    pub name: &'r str,
 }
 
 impl Clients {
@@ -16,16 +16,18 @@ impl Clients {
         let mut connection = database.connection;
 
         match diesel::insert_into(schema::clients::table)
-        .values(vec![&client])
-        .execute(&mut connection)
+            .values(vec![&client])
+            .execute(&mut connection)
         {
             Ok(_) => {
                 println!(":ORDENNE:database:client:create()");
-            },
+            }
             Err(err) => {
                 println!(":ORDENNE:database:client:create() exception: {:?}", err);
             }
         }
     }
     pub fn find() {}
+
+    pub fn all() {}
 }

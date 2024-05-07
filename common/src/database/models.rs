@@ -23,7 +23,7 @@ pub struct Equipaments {
     pub barcode: Option<i32>
 }
 
-#[derive(Queryable, Selectable)]
+#[derive(Queryable, Selectable, Identifiable, Debug, PartialEq)]
 #[diesel(table_name = super::schema::paymentmethods)]
 #[diesel(check_for_backend(diesel::sqlite::Sqlite))]
 pub struct PaymentMethods {
