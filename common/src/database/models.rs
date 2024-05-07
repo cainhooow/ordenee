@@ -1,6 +1,6 @@
 use diesel::prelude::*;
 
-#[derive(Queryable, Selectable)]
+#[derive(Queryable, Selectable, Identifiable, Debug, PartialEq)]
 #[diesel(table_name = super::schema::clients)]
 #[diesel(check_for_backend(diesel::sqlite::Sqlite))]
 pub struct Clients {
@@ -11,7 +11,7 @@ pub struct Clients {
     pub tel_num: Option<String>
 }
 
-#[derive(Queryable, Selectable)]
+#[derive(Queryable, Selectable, Identifiable, Debug, PartialEq)]
 #[diesel(table_name = super::schema::equipaments)]
 #[diesel(check_for_backend(diesel::sqlite::Sqlite))]
 pub struct Equipaments {
