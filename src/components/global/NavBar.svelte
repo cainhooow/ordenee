@@ -29,8 +29,8 @@
 		>
 			Equipamentos
 		</a>
-		<a class={currentRoute('/ordens') ? 'active' : ''} href="/ordens"> Ordens </a>
-		<a class={currentRoute('/empresa') ? 'active' : ''} href="/empresa"> Empresa </a>
+		<a class={currentRoute('/orders') ? 'active' : ''} href="/orders"> Ordens </a>
+		<a class={currentRoute('/work') ? 'active' : ''} href="/work"> Empresa </a>
 	</section>
 </nav>
 

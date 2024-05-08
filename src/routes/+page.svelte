@@ -29,42 +29,42 @@
 			<h1>Acesso rapido</h1>
 		</section>
 		<section class="app-fastaccess-items">
-			<a href="/clientes" type="button">
+			<a href="/clients" type="button">
 				<i class="ri-team-fill"></i>
 				Clientes
 			</a>
 
-			<a href="/tecnicos" type="button">
+			<a href="/technicals" type="button">
 				<i class="ri-team-fill"></i>
 				Tecnicos
 			</a>
 
-			<a href="/equipamentos/new-equipament" type="button">
+			<a href="/equipaments/new-equipament" type="button">
 				<i class="ri-briefcase-2-line"></i>
 				Adicionar equipamento
 			</a>
 
-			<a href="/equipamentos" type="button">
+			<a href="/equipaments" type="button">
 				<i class="ri-briefcase-2-line"></i>
 				Equipamentos
 			</a>
 
-			<a href="/pagform" type="button">
+			<a href="/paymentmethods" type="button">
 				<i class="ri-bank-card-line"></i>
 				Formas de pagamento
 			</a>
 
-			<a href="/ordens/new-order" type="button">
+			<a href="/orders/new-order" type="button">
 				<i class="ri-article-line"></i>
 				Nova OS
 			</a>
 
-			<a href="/ordens" type="button">
+			<a href="/orders" type="button">
 				<i class="ri-article-line"></i>
 				Ordens
 			</a>
 
-			<a href="/empresa" type="button">
+			<a href="/work" type="button">
 				<i class="ri-shake-hands-line"></i>
 				Empresa
 			</a>
