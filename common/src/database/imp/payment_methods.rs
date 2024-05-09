@@ -1,4 +1,4 @@
-use diesel::{prelude::Insertable, RunQueryDsl};
+use diesel::{prelude::Insertable, result::Error, RunQueryDsl};
 use crate::database::{models::PaymentMethods, schema::{self}, Database};
 
 #[derive(Insertable)]
@@ -8,7 +8,7 @@ pub struct PaymentBase<'r> {
 }
 
 impl PaymentMethods {
-    pub fn create(payment: PaymentBase) {
+    pub fn create(payment: PaymentBase) -> Result<(), Error> {
         let database = Database::init();
         let mut connection = database.connection;
 
@@ -18,9 +18,11 @@ impl PaymentMethods {
         {
             Ok(_) => {
                 println!(":ORDENNE:database:payment:create()");
+                Ok(())
             }
             Err(err) => {
                 println!(":ORDENNE:database:payment:create() exception: {:?}", err);
+                Err(err)
             }
         }
     }
