@@ -1,11 +1,11 @@
-<script>
-	import ClientCard from "../../components/clients/ClientCard.svelte";
-
-
+<script lang="ts">
 	import ClientHeader from "../../components/clients/ClientHeader.svelte";
+	import List from "../../components/paymentmethods/List.svelte";
+	
+	export let data;
+	const methods = data.methods ?? [];
 
 </script>
-
 
 <main>
 	<ClientHeader title={'Formas de pagamento'}>
@@ -16,15 +16,9 @@
 			</a>
 		</div>
 	</ClientHeader>
-	<section class="container clients p-1.5">
-		
+	<section class="container d-flex flex-col gap-0.5 p-1.5">
+		{#each methods as method}
+			<List method={method}/>
+		{/each}
 	</section>
 </main>
-
-<style lang="scss">
-	.clients {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-	}
-</style>

@@ -7,7 +7,6 @@
 
 	// Matchers: [route1, route2]
 	function routeMatch(routes: string[]) {
-		console.log(routes);
 		return routes.find((route) => route == $page.route.id);
 	}
 </script>

@@ -41,3 +41,13 @@
 .align-items-baseline {
     align-items: baseline;
 }
+
+.d-flex.flex-col {
+    flex-direction: column;
+}
+
+.d-flex.flex-row {
+    flex-direction: row;
+}
+
+@import "gap.scss";

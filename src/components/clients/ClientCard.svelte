@@ -24,16 +24,6 @@
 			{client.email}
 		</span>
 	</div>
-	<div class="client-actions pt-1.5">
-		<button>
-			<i class="ri-delete-bin-line"></i>
-			Deletar
-		</button>
-		<button>
-			<i class="ri-edit-circle-line"></i>
-			Editar
-		</button>
-	</div>
 </section>
 
 <style lang="scss">

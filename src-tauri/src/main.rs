@@ -14,6 +14,7 @@ fn main() {
     tauri::Builder::default()
         .invoke_handler(tauri::generate_handler![
             commands::payment_rest::add_payment,
+            commands::payment_rest::find_payment_method,
             commands::payment_rest::load_payments
         ])
         .run(tauri::generate_context!())
