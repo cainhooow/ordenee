@@ -2,7 +2,7 @@
 CREATE TABLE Clients(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name VARCHAR(90) NOT NULL,
-    email VARCHAR(90) NULL,
-    person_id VARCHAR(13) NULL,
+    email VARCHAR(90) NULL UNIQUE,
+    person_id VARCHAR(13) NULL UNIQUE,
     tel_num VARCHAR(15) NULL
 )

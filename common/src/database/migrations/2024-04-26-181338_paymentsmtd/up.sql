@@ -1,5 +1,5 @@
 -- Your SQL goes here
 CREATE TABLE PaymentMethods(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name VARCHAR(10) NOT NULL
+    name VARCHAR(10) NOT NULL UNIQUE
 )
