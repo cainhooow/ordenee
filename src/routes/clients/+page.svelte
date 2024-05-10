@@ -60,13 +60,13 @@
 <main>
 	<ClientHeader title={'Clientes'}>
 		<div slot="buttons-actions">
-			<a href="/clients/new-client" class=":hover-def with-ic" type="button">
+			<a href="/clients/new-client" type="button">
 				<i class="ri-user-add-line"></i>
 				Novo cliente
 			</a>
 		</div>
 	</ClientHeader>
-	<section class="container d-flex flex-col gap-0.5 p-1.5">
+	<section class="p-3 flex flex-col gap-2 mt-5">
 		{#each clientes as cliente}
 			<ClientCard client={cliente} />
 		{/each}

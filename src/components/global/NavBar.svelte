@@ -14,7 +14,7 @@
 <nav class="navbar">
 	<section class="app-title">
 		<a href="/">
-			<h1>Ordenne</h1>
+			<h1 class="text-4xl">Ordenne</h1>
 		</a>
 	</section>
 	<section class="app-discover">

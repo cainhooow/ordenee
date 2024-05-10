@@ -8,7 +8,7 @@
 		<img src={OrdeneeBanner} alt="presentation" />
 		<div class="pre-bg-metadata">
 			<section class="pre-metadata">
-				<h1>Olá, seja bem-vindo ao Ordenne!</h1>
+				<h1 class="text-5xl">Olá, seja bem-vindo ao Ordenne!</h1>
 				<p>
 					Obrigado por utilizar nossos serviços. O Ordenne foi feito para gerenciar seus serviços,
 					clientes e a sua empresa!
@@ -23,7 +23,7 @@
 			</section>
 		</div>
 	</section>
-	<section class="container app-fastaccess animation-showing" style="--delay: 1.5s">
+	<section class="container mx-auto app-fastaccess animation-showing" style="--delay: 1.5s">
 		<section class="app-fastaccess-header">
 			<i class="ri-menu-line"></i>
 			<h1>Acesso rapido</h1>
@@ -122,7 +122,8 @@
 		gap: 0.5rem;
 		background-color: var(--thirdary-opacity-1);
 
-		h1, i {
+		h1,
+		i {
 			font-size: 1.5rem;
 		}
 	}
@@ -132,7 +133,7 @@
 		width: 100%;
 		flex-direction: column;
 		padding: 0.5rem 0.9rem;
-		
+
 		.app-fastaccess-items {
 			display: flex;
 			width: 100%;
@@ -153,11 +154,11 @@
 				cursor: pointer;
 				border: none;
 				transition: all 100ms ease-in;
-	
+
 				li {
 					font-size: 1rem;
 				}
-	
+
 				&:hover {
 					background-color: var(--primary);
 					color: var(--white);
@@ -165,5 +166,4 @@
 			}
 		}
 	}
-
 </style>

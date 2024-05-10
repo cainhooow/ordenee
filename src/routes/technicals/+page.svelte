@@ -67,17 +67,10 @@
 			</a>
 		</div>
 	</ClientHeader>
-	<section class="container clients p-1.5">
+	<section class="p-3 flex flex-col gap-2 mt-5">
 		{#each clientes as cliente}
 			<ClientCard client={cliente} />
 		{/each}
 	</section>
 </main>
 
-<style lang="scss">
-	.clients {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-	}
-</style>

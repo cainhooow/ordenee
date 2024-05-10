@@ -8,18 +8,18 @@
 			<h1 class="client-profile">{client.name.slice()[0]}</h1>
 			<h1>{client.name}</h1>
 		</div>
-		<span class="pt-1.5">
+		<span class="mb-3 mt-5">
 			<i class="ri-calendar-line"></i> Criado em: {new Date(client.createdAt).toLocaleDateString(
 				'pt-br'
 			)}
 			
 			as {new Date(client.createdAt).toLocaleTimeString('pt-br')}
 		</span>
-		<span class="pt-1.5">
+		<span class="mb-3">
 			<i class="ri-phone-line"></i>
 			{client.telnum}
 		</span>
-		<span class="pt-0.5">
+		<span class="mb-3">
 			<i class="ri-mail-line"></i>
 			{client.email}
 		</span>
