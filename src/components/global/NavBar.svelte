@@ -11,89 +11,52 @@
 	}
 </script>
 
-<nav class="navbar">
-	<section class="app-title">
+<nav class="flex-col justify-around items-center border-b border-b-gray-600 p-5 shadow-lg">
+	<section class="mb-3">
 		<a href="/">
 			<h1 class="text-4xl">Ordenne</h1>
 		</a>
 	</section>
-	<section class="app-discover">
-		<a class={routeMatch(['/clients', '/clients/new-client']) ? 'active' : ''} href="/clients">
+	<section class="container mx-auto flex flex-row gap-3 text-lg">
+		<a
+			class={routeMatch(['/clients', '/clients/new-client'])
+				? 'text-white bg-violet-500 ps-4 px-4 rounded-lg transition-all ease-in-out delay-150'
+				: 'text-gray-400 ps-4 px-4 rounded-lg'}
+			href="/clients"
+		>
 			Clientes
 		</a>
-		<a class={routeMatch(['/technicals']) ? 'active' : ''} href="/technicals"> Tecnicos </a>
 		<a
-			class={routeMatch(['/equipaments', '/equipaments/new-equipament']) ? 'active' : ''}
+			class={routeMatch(['/technicals'])
+				? 'text-white bg-violet-500 ps-4 px-4 rounded-lg transition-all ease-in-out delay-150'
+				: 'text-gray-400 ps-4 px-4 rounded-lg'}
+			href="/technicals"
+		>
+			Tecnicos
+		</a>
+		<a
+			class={routeMatch(['/equipaments', '/equipaments/new-equipament'])
+				? 'text-white bg-violet-500 ps-4 px-4 rounded-lg transition-all ease-in-out delay-150'
+				: 'text-gray-400 ps-4 px-4 rounded-lg'}
 			href="/equipaments"
 		>
 			Equipamentos
 		</a>
-		<a class={currentRoute('/orders') ? 'active' : ''} href="/orders"> Ordens </a>
-		<a class={currentRoute('/work') ? 'active' : ''} href="/work"> Empresa </a>
+		<a
+			class={currentRoute('/orders')
+				? 'text-white bg-violet-500 ps-4 px-4 rounded-lg transition-all ease-in-out delay-150'
+				: 'text-gray-400 ps-4 px-4 rounded-lg'}
+			href="/orders"
+		>
+			Ordens
+		</a>
+		<a
+			class={currentRoute('/work')
+				? 'text-white bg-violet-500 ps-4 px-4 rounded-lg transition-all ease-in-out delay-150'
+				: 'text-gray-400 ps-4 px-4 rounded-lg'}
+			href="/work"
+		>
+			Empresa
+		</a>
 	</section>
 </nav>
-
-<style lang="scss">
-	.navbar {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-
-		background-color: var(--secondary);
-		padding: 1.5rem;
-
-		.app-title {
-			font-size: 1.6rem;
-		}
-
-		.app-discover {
-			margin: 0.5rem;
-			position: relative;
-
-			a {
-				margin: 0.5rem;
-				position: relative;
-				z-index: 1;
-				padding: .5rem;
-				background-color: var(--secondary);
-
-				&.active {
-					background-color: var(--white);
-					border-radius: 0.3rem;
-					color: var(--primary);
-					box-shadow: 1px 6px 15px 0.1px var(--secondary);
-					transition: all 50ms ease-in-out;
-
-					&::before {
-						content: '';
-						position: absolute;
-						width: 100%;
-						height: 0.1rem;
-						left: 0;
-						bottom: -0.5rem;
-						z-index: 0;
-						transition: all 200ms ease-in-out;
-						z-index: 0;
-					}
-				}
-
-				&::before {
-					content: '';
-					position: absolute;
-					background-color: var(--white);
-					width: 0;
-					height: 0.1rem;
-					left: 0;
-					bottom: -0.5rem;
-					z-index: 0;
-					transition: all 200ms ease-in-out;
-					z-index: 0;
-				}
-
-				&:hover::before {
-					width: 100%;
-				}
-			}
-		}
-	}
-</style>
