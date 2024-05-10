@@ -120,8 +120,7 @@
 		align-items: center;
 		padding: 0.5rem 1.5rem;
 		gap: 0.5rem;
-		background-color: var(--secondary);
-		border-radius: 0.5rem 0.5rem 0 0;
+		background-color: var(--thirdary-opacity-1);
 
 		h1, i {
 			font-size: 1.5rem;
@@ -141,8 +140,7 @@
 			flex-wrap: wrap;
 			flex-basis: 100px;
 			padding: 1rem;
-			background: linear-gradient(190deg, var(--primary-opacity-1), var(--secondary));
-	
+
 			a[type='button'] {
 				background: #fff;
 				display: flex;

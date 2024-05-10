@@ -1,10 +1,22 @@
+<script lang="ts" context="module">
+	function gotoPaymentInfo(ev: MouseEvent, methodId: number) {
+		ev.preventDefault();
+		window.location.href = `/paymentmethods/methods?method=${methodId}`;
+	}
+</script>
+
 <script lang="ts">
 	import type { Payment } from '../../types/Payment';
 
 	export let method = {} as Payment;
 </script>
 
-<button class="card p-1.5 animation-showing" style="--delay: 1.5s" tabindex="{method.id}" on:click={(ev) => gotoPaymentInfo(ev, method.id)}>
+<button
+	class="card p-1.5 animation-showing"
+	style="--delay: 1.5s"
+	tabindex={method.id}
+	on:click={(ev) => gotoPaymentInfo(ev, method.id)}
+>
 	<h3>{method.name}</h3>
 </button>
 
@@ -29,12 +41,3 @@
 		}
 	}
 </style>
-
-<script lang="ts" context="module">
-	import type { MouseEventHandler } from 'svelte/elements';
-
-	function gotoPaymentInfo(ev: MouseEvent, methodId: number) {
-		ev.preventDefault();
-		window.location.href = `/paymentmethods/methods/${methodId}`
-	}
-</script>
