@@ -1,5 +1,9 @@
 <script>
 	import ClientHeader from '../../../components/clients/ClientHeader.svelte';
+	import FloatingInputContainer from '../../../components/ui/Input/FloatingInputContainer.svelte';
+	import FloatingInput from '../../../components/ui/Input/FloatingInput.svelte';
+	import FloatingInputLabel from '../../../components/ui/Input/FloatingInputLabel.svelte';
+	import Button from '../../../components/ui/Button/Button.svelte';
 </script>
 
 <ClientHeader justifyContent="space-between">
@@ -10,54 +14,60 @@
 	</div>
 </ClientHeader>
 
-<main class="container pt-1.5 animation-showing" style="--delay: 1.5s">
-	<h1>Adicionar novo cliente</h1>
+<main class="container mt-[1.5rem] animation-showing" style="--delay: 1.5s">
+	<h1 class="text-3xl">Adicionar novo cliente</h1>
 	<p class="text-gray">Campos com "<span class="text-danger">*</span>" são obrigatorios</p>
-	<form action="POST" class="pt-1.5">
-		<section class="fclient-control">
-			<div class="floating-input">
-				<input type="text" placeholder="nome" name="nome" id="nome" required />
-				<label for="nome"> Nome <span class="text-danger">*</span> </label>
-			</div>
-			<div class="floating-input">
-				<input type="email" placeholder="email" name="email" id="email" required />
-				<label for="email"> Email <span class="text-danger">*</span> </label>
-			</div>
+	<form action="POST" class="mt-[1.5rem]">
+		<section class="flex mb-[1.5rem] gap-3">
+			<FloatingInputContainer class="w-full">
+				<FloatingInput
+					class="border w-full"
+					type="text"
+					placeholder="nome"
+					name="nome"
+					id="nome"
+					required
+				/>
+				<FloatingInputLabel for="method">Nome</FloatingInputLabel>
+			</FloatingInputContainer>
+			<FloatingInputContainer class="w-full">
+				<FloatingInput
+					class="border w-full"
+					type="email"
+					placeholder="email"
+					name="email"
+					id="email"
+					required
+				/>
+				<FloatingInputLabel for="method">Email</FloatingInputLabel>
+			</FloatingInputContainer>
 		</section>
-		<section class="fclient-control pt-1.5">
-			<div class="floating-input">
-				<input type="text" placeholder="nome" name="nome" id="nome" />
-				<label for="nome"> CPF </label>
-			</div>
-			<div class="floating-input">
-				<input type="telephony" placeholder="telefone" name="telefone" id="telefone" />
-				<label for="telefone"> Telefone </label>
-			</div>
+		<section class="flex flex mb-[1.5rem] gap-3">
+			<FloatingInputContainer class="w-full">
+				<FloatingInput class="border w-full" type="text" placeholder="nome" name="nome" id="nome" />
+				<FloatingInputLabel for="method">CPF</FloatingInputLabel>
+			</FloatingInputContainer>
+			
+			<FloatingInputContainer class="w-full">
+				<FloatingInput
+					class="border w-full"
+					type="telephony"
+					placeholder="telefone"
+					name="telefone"
+					id="telefone"
+				/>
+				<FloatingInputLabel for="method">Telefone</FloatingInputLabel>
+			</FloatingInputContainer>
 		</section>
-		<section class="fclient-control pt-1.5">
-			<button class="btn" type="button">
+		<section class="flex gap-3">
+			<Button type="button">
 				<i class="ri-user-add-line"></i>
 				Adicionar
-			</button>
-			<button class="btn" type="reset">
+			</Button>
+			<Button type="reset">
 				<i class="ri-delete-back-2-line"></i>
 				Limpar
-			</button>
+			</Button>
 		</section>
 	</form>
 </main>
-
-<style lang="scss">
-	.fclient-control {
-		display: flex;
-		gap: 0.5rem;
-
-		.floating-input {
-			width: 100%;
-		}
-
-		.floating-input input {
-			width: 100%;
-		}
-	}
-</style>

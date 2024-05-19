@@ -18,7 +18,7 @@
 		"@playwright/test": "^1.28.1",
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/adapter-static": "^3.0.1",
-		"@sveltejs/kit": "^2.0.0",
+		"@sveltejs/kit": "^2.5.9",
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
 		"@types/eslint": "8.56.0",
 		"@typescript-eslint/eslint-plugin": "^6.0.0",
@@ -42,6 +42,8 @@
 	"type": "module",
 	"dependencies": {
 		"@tauri-apps/api": "^1.5.4",
+		"@tensorflow/tfjs": "^4.19.0",
+		"@tensorflow/tfjs-node": "^4.19.0",
 		"node-sass": "^9.0.0",
 		"remixicon": "^4.2.0",
 		"sass": "^1.69.7"
