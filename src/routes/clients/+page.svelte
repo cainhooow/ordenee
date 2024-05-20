@@ -2,7 +2,7 @@
 	import ClientHeader from '../../components/clients/ClientHeader.svelte';
 	import ClientCard from '../../components/clients/ClientCard.svelte';
 	import NavBar from '../../components/global/NavBar.svelte';
-	
+
 	let clientes = [
 		{
 			name: 'João Silva',
@@ -57,18 +57,16 @@
 	];
 </script>
 
-<main>
-	<ClientHeader title={'Clientes'}>
-		<div slot="buttons-actions">
-			<a href="/clients/new-client" type="button">
-				<i class="ri-user-add-line"></i>
-				Novo cliente
-			</a>
-		</div>
-	</ClientHeader>
-	<section class="p-3 flex flex-col gap-2 mt-5">
-		{#each clientes as cliente}
-			<ClientCard client={cliente} />
-		{/each}
-	</section>
-</main>
+<ClientHeader title={'Clientes'}>
+	<div slot="buttons-actions">
+		<a href="/clients/new-client" type="button">
+			<i class="ri-user-add-line"></i>
+			Novo cliente
+		</a>
+	</div>
+</ClientHeader>
+<section class="p-3 flex flex-col gap-2 mt-5">
+	{#each clientes as cliente}
+		<ClientCard client={cliente} />
+	{/each}
+</section>

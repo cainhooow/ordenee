@@ -11,7 +11,18 @@
   },
   "tauri": {
     "allowlist": {
-      "all": false
+      "all": false,
+      "window": {
+        "all": false,
+        "close": false,
+        "hide": true,
+        "show": true,
+        "maximize": true,
+        "minimize": true,
+        "unmaximize": true,
+        "unminimize": true,
+        "startDragging": true
+      }
     },
     "bundle": {
       "active": true,
@@ -57,7 +68,9 @@
         "fullscreen": false,
         "height": 800,
         "resizable": false,
+        "decorations": false,
         "title": "Ordenne",
+        "transparent": true,
         "width": 800
       }
     ]

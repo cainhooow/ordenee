@@ -11,12 +11,7 @@
 	}
 </script>
 
-<nav class="flex flex-col justify-around items-center border-b border-b-zinc-600 p-5 shadow-lg">
-	<section class="mb-3 w-full">
-		<a href="/">
-			<h1 class="text-4xl">Ordenne</h1>
-		</a>
-	</section>
+<nav class="flex flex-col justify-around items-center border-b border-b-zinc-600 p-5 shadow-lg mt-[0.5rem]">
 	<section class="container mx-auto flex flex-row gap-3 text-lg">
 		<a
 			class={routeMatch(['/clients', '/clients/new-client'])

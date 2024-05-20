@@ -2,6 +2,8 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 pub mod commands;
 use common::{database::Database, fs::AppDirStruct};
+use tauri::Manager;
+use window_vibrancy::*;
 
 fn main() {
     if cfg!(linux) {
@@ -12,6 +14,15 @@ fn main() {
     Database::init();
 
     tauri::Builder::default()
+        .setup(|app| {
+            let window = app.get_window("main").unwrap();
+
+            #[cfg(target_os = "windows")]
+            apply_acrylic(&window, Some((0, 0, 0, 255)))
+            .expect("Unsupported platform! 'apply_blur' is only supported on Windows");
+
+            Ok(())
+        })
         .invoke_handler(tauri::generate_handler![
             commands::payment_rest::add_payment,
             commands::payment_rest::find_payment_method,

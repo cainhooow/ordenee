@@ -55,22 +55,18 @@
 			cpf: '444.555.666-77'
 		}
 	];
-
 </script>
 
-<main>
-	<ClientHeader title={'Tecnicos'}>
-		<div slot="buttons-actions">
-			<a href="/technicals/new-tecnique" class=":hover-def with-ic" type="button">
-				<i class="ri-user-add-line"></i>
-				Novo tecnico
-			</a>
-		</div>
-	</ClientHeader>
-	<section class="p-3 flex flex-col gap-2 mt-5">
-		{#each clientes as cliente}
-			<ClientCard client={cliente} />
-		{/each}
-	</section>
-</main>
-
+<ClientHeader title={'Tecnicos'}>
+	<div slot="buttons-actions">
+		<a href="/technicals/new-tecnique" class=":hover-def with-ic" type="button">
+			<i class="ri-user-add-line"></i>
+			Novo tecnico
+		</a>
+	</div>
+</ClientHeader>
+<section class="p-3 flex flex-col gap-2 mt-5">
+	{#each clientes as cliente}
+		<ClientCard client={cliente} />
+	{/each}
+</section>

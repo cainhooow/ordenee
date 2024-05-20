@@ -33,10 +33,15 @@
     text-decoration: none;
 }
 
+:global(html) {
+    background: transparent;
+}
+
 :global(body) {
-    background-color: var(--primary);
+    background: #080808a2;
     color: var(--white);
     height: 100vh;
+    overflow-y: hidden;
 }
 
 :global(.container) {

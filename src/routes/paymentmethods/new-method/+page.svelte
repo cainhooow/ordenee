@@ -40,7 +40,7 @@
 	</div>
 </ClientHeader>
 
-<main class="container pt-[1.5rem] animation-showing" style="--delay: 1.5s">
+<div class="container mx-auto">
 	<h1 class="text-2xl font-bold border-b border-b-zinc-500 pb-2">
 		Adicionar nova forma de pagamento
 	</h1>
@@ -70,4 +70,4 @@
 			</Button>
 		</section>
 	</form>
-</main>
+</div>
