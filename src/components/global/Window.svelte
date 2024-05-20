@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import SearchBar from './Window/SearchBar.svelte';
 
 	function currentRoute(route: String) {
 		return route == $page.route.id;
@@ -49,6 +50,7 @@
 			</div>
 		</div>
 	</div>
+	<SearchBar/>
 	<div class="mx-1">
 		<span> X </span>
 	</div>
