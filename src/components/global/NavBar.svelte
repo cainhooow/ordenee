@@ -11,8 +11,8 @@
 	}
 </script>
 
-<nav class="flex-col justify-around items-center border-b border-b-gray-600 p-5 shadow-lg">
-	<section class="mb-3">
+<nav class="flex flex-col justify-around items-center border-b border-b-zinc-600 p-5 shadow-lg">
+	<section class="mb-3 w-full">
 		<a href="/">
 			<h1 class="text-4xl">Ordenne</h1>
 		</a>
@@ -21,7 +21,7 @@
 		<a
 			class={routeMatch(['/clients', '/clients/new-client'])
 				? 'text-white bg-violet-500 ps-4 px-4 rounded-lg transition-all ease-in-out delay-150'
-				: 'text-gray-400 ps-4 px-4 rounded-lg'}
+				: 'text-zinc-300 ps-4 px-4 rounded-lg'}
 			href="/clients"
 		>
 			Clientes
@@ -29,7 +29,7 @@
 		<a
 			class={routeMatch(['/technicals'])
 				? 'text-white bg-violet-500 ps-4 px-4 rounded-lg transition-all ease-in-out delay-150'
-				: 'text-gray-400 ps-4 px-4 rounded-lg'}
+				: 'text-zinc-300 ps-4 px-4 rounded-lg'}
 			href="/technicals"
 		>
 			Tecnicos
@@ -37,7 +37,7 @@
 		<a
 			class={routeMatch(['/equipaments', '/equipaments/new-equipament'])
 				? 'text-white bg-violet-500 ps-4 px-4 rounded-lg transition-all ease-in-out delay-150'
-				: 'text-gray-400 ps-4 px-4 rounded-lg'}
+				: 'text-zinc-300 ps-4 px-4 rounded-lg'}
 			href="/equipaments"
 		>
 			Equipamentos
@@ -45,7 +45,7 @@
 		<a
 			class={currentRoute('/orders')
 				? 'text-white bg-violet-500 ps-4 px-4 rounded-lg transition-all ease-in-out delay-150'
-				: 'text-gray-400 ps-4 px-4 rounded-lg'}
+				: 'text-zinc-300 ps-4 px-4 rounded-lg'}
 			href="/orders"
 		>
 			Ordens
@@ -53,7 +53,7 @@
 		<a
 			class={currentRoute('/work')
 				? 'text-white bg-violet-500 ps-4 px-4 rounded-lg transition-all ease-in-out delay-150'
-				: 'text-gray-400 ps-4 px-4 rounded-lg'}
+				: 'text-zinc-300 ps-4 px-4 rounded-lg'}
 			href="/work"
 		>
 			Empresa

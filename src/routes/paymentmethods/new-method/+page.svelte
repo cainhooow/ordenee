@@ -55,7 +55,7 @@
 	<form class="pt-[1.5rem]" id="form-newpayment">
 		<section class="flex w-full items-center">
 			<FloatingInputContainer class="w-full">
-				<FloatingInput class="border w-full" type="text" placeholder="Metodo" />
+				<FloatingInput class="border w-full" type="text" placeholder="Metodo" required />
 				<FloatingInputLabel for="method">Método</FloatingInputLabel>
 			</FloatingInputContainer>
 		</section>
