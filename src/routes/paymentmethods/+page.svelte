@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ClientHeader from '../../components/clients/ClientHeader.svelte';
-	import List from '../../components/paymentmethods/List.svelte';
+	import MethodsList from '../../components/paymentmethods/MethodsList.svelte';
 	import Anchor from '../../components/ui/Button/Anchor.svelte';
 
 	export let data;
@@ -17,6 +17,6 @@
 </ClientHeader>
 <section class="container flex flex-col gap-[0.5rem] p-[1.5rem]">
 	{#each methods as method}
-		<List {method} />
+		<MethodsList {method} />
 	{/each}
 </section>

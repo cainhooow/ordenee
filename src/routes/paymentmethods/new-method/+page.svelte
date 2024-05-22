@@ -1,10 +1,23 @@
-<script lang="ts" context="module">
+<script lang="ts">
+	import ClientHeader from '../../../components/clients/ClientHeader.svelte';
+	import { invoke } from '@tauri-apps/api';
+
+	import Button from '../../../components/ui/Button/Button.svelte';
+	import FloatingInput from '../../../components/ui/Input/FloatingInput.svelte';
+	import FloatingInputContainer from '../../../components/ui/Input/FloatingInputContainer.svelte';
+	import FloatingInputLabel from '../../../components/ui/Input/FloatingInputLabel.svelte';
+	import ErrorPaymentAdd from '../../../components/paymentmethods/new-method/ErrorPaymentAdd.svelte';
+	import TextHightLighter from '../../../components/ui/TextUtils/TextHightLighter.svelte';
+
+	export let dialogVisible = false;
+
 	async function formSubmit(ev: CustomEvent<any>) {
 		ev.preventDefault();
 		let form = document.getElementById('form-newpayment') as HTMLFormElement;
 		let payment = form[0] as HTMLInputElement;
 
 		if (payment.value === '' || payment.value.length <= 0) {
+			dialogVisible = true;
 			return;
 		}
 
@@ -20,17 +33,15 @@
 				console.error(err);
 			});
 	}
+
+	function dialog(ev: CustomEvent) {
+		dialogVisible = !dialogVisible;
+	}
 </script>
 
-<script lang="ts">
-	import ClientHeader from '../../../components/clients/ClientHeader.svelte';
-	import { invoke } from '@tauri-apps/api';
-
-	import Button from '../../../components/ui/Button/Button.svelte';
-	import FloatingInput from '../../../components/ui/Input/FloatingInput.svelte';
-	import FloatingInputContainer from '../../../components/ui/Input/FloatingInputContainer.svelte';
-	import FloatingInputLabel from '../../../components/ui/Input/FloatingInputLabel.svelte';
-</script>
+{#if dialogVisible}
+	<ErrorPaymentAdd closeAct={dialog} />
+{/if}
 
 <ClientHeader justifyContent="end" title="">
 	<div slot="actions-additionals">
@@ -45,12 +56,11 @@
 		Adicionar nova forma de pagamento
 	</h1>
 	<p class="text-gray mt-[0.8rem]">
-		Campos com "<span class="text-red-400">*</span>" são obrigatorios
+		Campos com bordas alaranjadas são obrigatórios e cinzas opcionais.
 	</p>
 	<p class="text-gray mt-[0.8rem]">
-		Ao digitar a forma de pagamento <span class="text-yellow-500 italic font-bold">PIX</span>, a
-		chave ou QR code serão requisitados ao concluir uma nova ordem, sendo salvos para uma nova
-		ordem.
+		Ao digitar a forma de pagamento <TextHightLighter class="px-1">PIX</TextHightLighter>, a chave
+		ou QR code serão requisitados ao concluir uma nova ordem, sendo salvos para uma nova ordem.
 	</p>
 	<form class="pt-[1.5rem]" id="form-newpayment">
 		<section class="flex w-full items-center">
@@ -60,7 +70,7 @@
 			</FloatingInputContainer>
 		</section>
 		<section class="flex pt-[1.5rem] gap-3">
-			<Button type="button" on:click={formSubmit}>
+			<Button type="button" onclick={formSubmit}>
 				<i class="ri-user-add-line"></i>
 				Adicionar
 			</Button>

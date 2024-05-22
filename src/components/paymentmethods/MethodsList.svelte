@@ -7,37 +7,13 @@
 
 <script lang="ts">
 	import type { Payment } from '../../types/Payment';
-
 	export let method = {} as Payment;
 </script>
 
 <button
-	class="card p-1.5 animation-showing"
-	style="--delay: 1.5s"
+	class="flex border rounded items-start p-2 bg-zinc-700/10 hover:bg-zinc-700/50 border-zinc-700 hover:border-zinc-600 transition-all ease-in-out delay-[10ms]"
 	tabindex={method.id}
 	on:click={(ev) => gotoPaymentInfo(ev, method.id)}
 >
 	<h3>{method.name}</h3>
 </button>
-
-<style lang="scss">
-	.card {
-		border: 1px solid #2d2d2d;
-		border-radius: 0.5rem;
-		background: var(--primary-opacity-2);
-		transition: all 200ms ease-in;
-		cursor: pointer;
-
-		&:hover {
-			background-color: var(--thirdary);
-		}
-
-		&:focus {
-			background-color: var(--primary);
-		}
-
-		h3 {
-			text-align: start;
-		}
-	}
-</style>
