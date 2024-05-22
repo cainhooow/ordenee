@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import FastAccess from './Window/FastAccess.svelte';
 	import SearchBar from './Window/SearchBar.svelte';
+	import { handleCommand } from '../../utils/actions/Commands';
 
 	function currentRoute(route: String) {
 		return route == $page.route.id;
@@ -10,10 +12,15 @@
 	function routeMatch(routes: string[]) {
 		return routes.find((route) => route == $page.route.id);
 	}
+
+	function closeApp(ev: MouseEvent) {
+		ev.preventDefault();
+		handleCommand('close-app', ev);
+	}
 </script>
 
 <div
-	class="relative flex items-center justify-between w-full top-0 p-2 border-b border-b-zinc-700"
+	class="relative flex items-center justify-between w-full top-0 border-b p-[0.3rem] border-b-zinc-700"
 	data-tauri-drag-region="true"
 >
 	<div class="flex gap-3 items-center">
@@ -23,35 +30,17 @@
 				class="relative px-2 ps-2 border border-transparent rounded group hover:bg-zinc-800/50 hover:border-zinc-700"
 				role="button"
 			>
-				Acesso rápido
-				<ul
-					class="hidden absolute left-0 right-0 w-auto top-6 bg-zinc-800/90 backdrop-blur-md rounded border border-zinc-700 group-hover:inline group z-50"
-				>
-					<li class="flex">
-						<a class="hover:bg-zinc-600/50 w-full p-[0.2rem] pl-2" href="/clients"> Clientes </a>
-					</li>
-					<li class="flex">
-						<a class=" hover:bg-zinc-600/50 w-full p-[0.2rem] pl-2" href="/technicals">
-							Técnicos
-						</a>
-					</li>
-					<li class="flex">
-						<a class=" hover:bg-zinc-600/50 w-full p-[0.2rem] pl-2" href="/equipaments">
-							Equipamentos
-						</a>
-					</li>
-					<li class="flex">
-						<a class=" hover:bg-zinc-600/50 w-full p-[0.2rem] pl-2" href="/orders"> Ordens </a>
-					</li>
-					<li class="flex">
-						<a class=" hover:bg-zinc-600/50 w-full p-[0.2rem] pl-2" href="/work"> Empresa </a>
-					</li>
-				</ul>
+				<FastAccess />
 			</div>
 		</div>
 	</div>
-	<SearchBar/>
-	<div class="mx-1">
-		<span> X </span>
+	<SearchBar />
+	<div class="mx-2">
+		<button
+			on:click={closeApp}
+			class="transition-all ease-in delay-[10ms] hover:bg-red-400 hover:text-red-900 rounded-full px-1"
+		>
+			<i class="ri-close-line"></i>
+		</button>
 	</div>
 </div>
