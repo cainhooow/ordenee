@@ -9,7 +9,9 @@ export const commands: Array<Action> = [
 			type: 'create',
 			code: 100,
 			description: 'Criar formas de pagamento comumente usadas',
-			run: () => {}
+			run: () => {
+				
+			}
 		}
 	},
 	{
@@ -19,7 +21,9 @@ export const commands: Array<Action> = [
 			type: 'redirect',
 			code: 101,
 			description: 'Ir para formas de pagamentos',
-			run: () => {}
+			run: () => {
+				window.location.href = "/paymentmethods/new-method"
+			}
 		}
 	},
 	{
