@@ -1,17 +1,21 @@
 use std::vec;
 
-use diesel::{prelude::Insertable, RunQueryDsl};
+use diesel::{prelude::Insertable, result::Error, RunQueryDsl};
+use serde::{Deserialize, Serialize};
 
 use crate::database::{models::Clients, schema, Database};
 
-#[derive(Insertable)]
+#[derive(Insertable, Serialize, Deserialize)]
 #[diesel(table_name = schema::clients)]
 pub struct ClientBase<'r> {
     pub name: &'r str,
+    pub email: Option<&'r str>,
+    pub tel_num: Option<&'r str>,
+    pub person_id: Option<&'r str>
 }
 
 impl Clients {
-    pub fn create(client: ClientBase) {
+    pub fn create(client: ClientBase) -> Result<(), Error> {
         let database = Database::init();
         let mut connection = database.connection;
 
@@ -21,9 +25,11 @@ impl Clients {
         {
             Ok(_) => {
                 println!(":ORDENNE:database:client:create()");
+                Ok(())
             }
             Err(err) => {
                 println!(":ORDENNE:database:client:create() exception: {:?}", err);
+                Err(err)
             }
         }
     }

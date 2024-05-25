@@ -1,0 +1,24 @@
+use common::database::{imp::clients::ClientBase, models::Clients};
+
+#[tauri::command]
+pub fn add_client(client: String) -> Result<String, ()> {
+    println!(":ORDENNE:command:add_client()->{:#?}", client);
+
+    let client = serde_json::from_str::<ClientBase>(&client);
+
+    let client = match client {
+        Ok(cli) => cli,
+        Err(err) => {
+            println!(":ORDENNE:command:add_client() excpetion {:?}", err);
+            return Err(());
+        }
+    };
+
+    match Clients::create(client) {
+        Ok(_) => Ok(String::from("created")),
+        Err(err) => {
+            println!(":ORDENNE:command:add_client() excpetion {:?}", err);
+            Err(())
+        }
+    }
+}

@@ -1,9 +1,32 @@
-<script>
+<script lang="ts">
 	import ClientHeader from '../../../components/clients/ClientHeader.svelte';
 	import FloatingInputContainer from '../../../components/ui/Input/FloatingInputContainer.svelte';
 	import FloatingInput from '../../../components/ui/Input/FloatingInput.svelte';
 	import FloatingInputLabel from '../../../components/ui/Input/FloatingInputLabel.svelte';
 	import Button from '../../../components/ui/Button/Button.svelte';
+
+	import { invoke } from '@tauri-apps/api';
+
+	async function formSubmit(e: MouseEvent) {
+		e.preventDefault();
+
+		const form = {
+			name: (document.getElementById('nome') as HTMLInputElement).value,
+			email: (document.getElementById('email') as HTMLInputElement).value,
+			person_id: (document.getElementById('cpf') as HTMLInputElement).value, 
+			tel_num: (document.getElementById('telefone') as HTMLInputElement).value
+ 		};
+
+		if (form.name === '' || form.name.length <= 0) {
+			return;
+		}
+
+		await invoke('add_client', {
+			client: JSON.stringify(form)
+		}).then((res) => {
+			window.location.href = "/clients"
+		})
+	}
 </script>
 
 <ClientHeader justifyContent="space-between">
@@ -36,14 +59,13 @@
 					placeholder="email"
 					name="email"
 					id="email"
-					required
 				/>
 				<FloatingInputLabel for="method">Email</FloatingInputLabel>
 			</FloatingInputContainer>
 		</section>
-		<section class="flex flex mb-[1.5rem] gap-3">
+		<section class="flex mb-[1.5rem] gap-3">
 			<FloatingInputContainer class="w-full">
-				<FloatingInput class="border w-full" type="text" placeholder="nome" name="nome" id="nome" />
+				<FloatingInput class="border w-full" type="text" placeholder="cpf" name="cpf" id="cpf" />
 				<FloatingInputLabel for="method">CPF</FloatingInputLabel>
 			</FloatingInputContainer>
 
@@ -59,7 +81,7 @@
 			</FloatingInputContainer>
 		</section>
 		<section class="flex gap-3">
-			<Button type="button">
+			<Button type="button" onclick={formSubmit}>
 				<i class="ri-user-add-line"></i>
 				Adicionar
 			</Button>

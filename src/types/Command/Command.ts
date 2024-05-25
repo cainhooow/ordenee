@@ -16,6 +16,19 @@ export type Command = {
 	/**
 	 * @property Command type for filter command category or command
 	 * level
+	 *
+	 * ```ts
+	 * if (command.type === 'app-action') {
+	 *     // action for app.... close/open system dialog....
+	 * }
+	 * ```
+     * 
+     * ```ts
+     * if (command.type === 'create') {
+     *     // run item to create
+     *     user.create({...})
+     * }
+     * ```
 	 */
 	type: CommandType;
 	/**

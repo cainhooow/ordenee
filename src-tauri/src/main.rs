@@ -18,7 +18,7 @@ fn main() {
             let window = app.get_window("main").unwrap();
 
             #[cfg(target_os = "windows")]
-            apply_acrylic(&window, Some((0, 0, 0, 255)))
+            apply_acrylic(&window, Some((0, 0, 0, 0)))
             .expect("Unsupported platform! 'apply_blur' is only supported on Windows");
 
             Ok(())
@@ -26,7 +26,8 @@ fn main() {
         .invoke_handler(tauri::generate_handler![
             commands::payment_rest::add_payment,
             commands::payment_rest::find_payment_method,
-            commands::payment_rest::load_payments
+            commands::payment_rest::load_payments,
+            commands::clients_rest::add_client,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
