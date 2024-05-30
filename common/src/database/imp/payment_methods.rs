@@ -4,8 +4,7 @@ use crate::database::{
     Database,
 };
 use diesel::{
-    prelude::Insertable, result::Error, ExpressionMethods, QueryDsl,
-    RunQueryDsl, SelectableHelper
+    prelude::Insertable, result::Error, ExpressionMethods, QueryDsl, RunQueryDsl, SelectableHelper,
 };
 #[derive(Insertable)]
 #[diesel(table_name = schema::paymentmethods)]
@@ -45,12 +44,8 @@ impl PaymentMethods {
             .select(PaymentMethods::as_select())
             .get_result(&mut connection)
         {
-            Ok(payment) => {
-                Ok(payment)
-            }
-            Err(err) => {
-                Err(err)
-            }
+            Ok(payment) => Ok(payment),
+            Err(err) => Err(err),
         }
     }
 

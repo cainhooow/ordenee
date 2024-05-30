@@ -17,7 +17,8 @@
 			name: (document.getElementById('nome') as HTMLInputElement).value,
 			email: (document.getElementById('email') as HTMLInputElement).value,
 			person_id: (document.getElementById('cpf') as HTMLInputElement).value,
-			tel_num: (document.getElementById('telefone') as HTMLInputElement).value
+			tel_num: (document.getElementById('telefone') as HTMLInputElement).value,
+			is_technical: false
 		};
 
 		if (form.name === '' || form.name.length <= 0) {

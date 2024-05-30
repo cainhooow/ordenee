@@ -2,14 +2,17 @@ use diesel::prelude::*;
 use serde::{Deserialize, Serialize};
 
 #[derive(Queryable, Selectable, Identifiable, Debug, PartialEq)]
-#[diesel(table_name = super::schema::clients)]
+#[diesel(table_name = super::schema::persons)]
 #[diesel(check_for_backend(diesel::sqlite::Sqlite))]
-pub struct Clients {
+pub struct Persons {
     pub id: i32,
     pub name: String,
     pub email: Option<String>,
     pub person_id: Option<String>,
-    pub tel_num: Option<String>
+    pub tel_num: Option<String>,
+    pub is_technical: bool,
+    pub created_at: String,
+    pub updated_at: Option<String>,
 }
 
 #[derive(Queryable, Selectable, Identifiable, Debug, PartialEq)]
@@ -21,7 +24,9 @@ pub struct Equipaments {
     pub serie: Option<String>,
     pub model: String,
     pub description: Option<String>,
-    pub barcode: Option<i32>
+    pub barcode: Option<i32>,
+    pub created_at: String,
+    pub updated_at: Option<String>,
 }
 
 #[derive(Queryable, Selectable, Identifiable, Debug, PartialEq, Serialize, Deserialize)]
@@ -29,5 +34,7 @@ pub struct Equipaments {
 #[diesel(check_for_backend(diesel::sqlite::Sqlite))]
 pub struct PaymentMethods {
     pub id: i32,
-    pub name: String
+    pub name: String,
+    pub created_at: String,
+    pub updated_at: Option<String>,
 }

@@ -5,5 +5,7 @@ CREATE TABLE Equipaments(
     serie VARCHAR(155) NULL UNIQUE,
     model VARCHAR(50) NOT NULL,
     description TEXT NULL,
-    barcode INTEGER NULL
+    barcode INTEGER NULL,
+    created_at DATE NOT NULL DEFAULT (DATETIME(CURRENT_TIMESTAMP, 'localtime')),
+    updated_at DATE NULL
 )
