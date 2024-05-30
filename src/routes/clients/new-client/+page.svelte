@@ -4,8 +4,11 @@
 	import FloatingInput from '../../../components/ui/Input/FloatingInput.svelte';
 	import FloatingInputLabel from '../../../components/ui/Input/FloatingInputLabel.svelte';
 	import Button from '../../../components/ui/Button/Button.svelte';
+	import ErrorClientAdd from '../../../components/global/Dialogs/CommonError.dialog.empt.svelte';
 
 	import { invoke } from '@tauri-apps/api';
+
+	export let dialogVisible = false;
 
 	async function formSubmit(e: MouseEvent) {
 		e.preventDefault();
@@ -13,21 +16,30 @@
 		const form = {
 			name: (document.getElementById('nome') as HTMLInputElement).value,
 			email: (document.getElementById('email') as HTMLInputElement).value,
-			person_id: (document.getElementById('cpf') as HTMLInputElement).value, 
+			person_id: (document.getElementById('cpf') as HTMLInputElement).value,
 			tel_num: (document.getElementById('telefone') as HTMLInputElement).value
- 		};
+		};
 
 		if (form.name === '' || form.name.length <= 0) {
+			dialogVisible = true;
 			return;
 		}
 
 		await invoke('add_client', {
 			client: JSON.stringify(form)
 		}).then((res) => {
-			window.location.href = "/clients"
-		})
+			window.location.href = '/clients';
+		});
+	}
+
+	function dialog(ev: CustomEvent) {
+		dialogVisible = !dialogVisible;
 	}
 </script>
+
+{#if dialogVisible}
+	<ErrorClientAdd closeAct={dialog} />
+{/if}
 
 <ClientHeader justifyContent="space-between">
 	<div slot="actions-additionals">
@@ -36,6 +48,7 @@
 		</a>
 	</div>
 </ClientHeader>
+
 <div class="container mx-auto">
 	<h1 class="text-3xl">Adicionar novo cliente</h1>
 	<p class="text-gray">Campos com "<span class="text-danger">*</span>" são obrigatorios</p>

@@ -6,7 +6,7 @@
 	import FloatingInput from '../../../components/ui/Input/FloatingInput.svelte';
 	import FloatingInputContainer from '../../../components/ui/Input/FloatingInputContainer.svelte';
 	import FloatingInputLabel from '../../../components/ui/Input/FloatingInputLabel.svelte';
-	import ErrorPaymentAdd from '../../../components/paymentmethods/new-method/ErrorPaymentAdd.svelte';
+	import ErrorPaymentAdd from '../../../components/global/Dialogs/CommonError.dialog.empt.svelte';
 	import TextHightLighter from '../../../components/ui/TextUtils/TextHightLighter.svelte';
 
 	export let dialogVisible = false;
