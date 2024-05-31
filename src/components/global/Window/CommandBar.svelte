@@ -51,7 +51,7 @@
 						class="flex flex-col text-lg px-2 w-full border border-transparent hover:border-zinc-700 hover:bg-zinc-700/50 rounded"
 						on:click={(ev) => handleEvent(ev, action)}
 					>
-						{action.action}
+						{typeof action.action === 'object' ? action.action[0] : action.action}
 						<span class="text-sm text-zinc-500">{action.command.description}</span>
 					</button>
 				<!-- {/if} -->

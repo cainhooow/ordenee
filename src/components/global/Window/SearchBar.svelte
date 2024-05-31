@@ -1,8 +1,4 @@
 <script lang="ts">
-	import type { Action } from '../../../types/Command/Action';
-	import { commands, handleCommand } from '../../../utils/actions/Commands';
-	import Input from '../../ui/Input/Input.svelte';
-	import type { MouseEventHandler } from 'svelte/elements';
 	import CommandBar from './CommandBar.svelte';
 
 	let commandBarVisible: boolean;
@@ -51,7 +47,7 @@
 >
 	<div class="text-zinc-500">
 		<i class="ri-search-2-line"></i>
-		<span>Algo interessante</span>
+		<span>Ordenee IA</span>
 	</div>
 </button>
 {#if commandBarVisible}
