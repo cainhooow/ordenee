@@ -3,21 +3,9 @@ import { appWindow } from '@tauri-apps/api/window';
 
 export const commands: Array<Action> = [
 	{
-		action: 'Criar formas de pagamentos comuns',
-		command: {
-			name: 'create-common-payment',
-			type: 'create',
-			code: 100,
-			description: 'Criar formas de pagamento comumente usadas',
-			run: () => {
-				
-			}
-		}
-	},
-	{
 		action: 'Adicionar formas de pagamentos',
 		command: {
-			name: 'goto-payment-methods',
+			name: 'go-to-payment-methods',
 			type: 'redirect',
 			code: 101,
 			description: 'Ir para formas de pagamentos',
@@ -40,12 +28,20 @@ export const commands: Array<Action> = [
 	}
 ];
 
+export const mapCommandsAction = () => {
+	return commands.map((act) => act.action)
+}
+
+export const mapCommandsName = () => {
+	return commands.map((act) => act.command.name);
+}
+
 export const getCommand = (cmdName: string) => {
-	return commands.find((_action) => cmdName === _action.command.name);
+	return commands.find((_action) => cmdName === _action.command.name || cmdName === _action.action);
 };
 
-export const handleCommand = async (cmdName: string, ...args: any[]) => {
-	const command = getCommand(cmdName);
+export const handleCommand = async (cmd: string, ...args: any[]) => {
+	const command = getCommand(cmd);
 
 	console.log(command);
 	

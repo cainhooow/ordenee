@@ -4,7 +4,7 @@ export type Action = {
     /**
      * @property Short description for a app action 
      */
-    action?: string,
+    action: string,
     /**
      * @property Command to execute a action
      */

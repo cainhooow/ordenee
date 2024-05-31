@@ -3,6 +3,12 @@
 	import FastAccess from './Window/FastAccess.svelte';
 	import SearchBar from './Window/SearchBar.svelte';
 	import { handleCommand } from '../../utils/actions/Commands';
+	import ActionHandled from './Dialogs/ActionHandled.dialog.svelte';
+	import { ordeneeIADialog } from '../../store';
+
+	let dialogVisible = false;
+
+	ordeneeIADialog.subscribe((vs) => (dialogVisible = vs));
 
 	function currentRoute(route: String) {
 		return route == $page.route.id;
@@ -18,6 +24,10 @@
 		handleCommand('close-app', ev);
 	}
 </script>
+
+{#if dialogVisible}
+	<ActionHandled />
+{/if}
 
 <div
 	class="relative flex items-center justify-between w-full top-0 border-b p-[0.3rem] border-b-zinc-700"
