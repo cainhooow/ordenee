@@ -32,6 +32,7 @@ export default class OrdeneeSentencer {
 		const scores = scoresTensor.arraySync() as number[][];
 
 		const predictRes: string = this._predict(scores[0], inputModel, 1);
+
 		return predictRes;
 	}
 

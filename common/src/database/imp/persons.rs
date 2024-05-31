@@ -12,7 +12,7 @@ pub struct PersonsBase<'r> {
     pub email: Option<&'r str>,
     pub tel_num: Option<&'r str>,
     pub person_id: Option<&'r str>,
-    pub is_technical: Option<bool>
+    pub is_technical: Option<bool>,
 }
 
 impl Persons {
@@ -36,7 +36,7 @@ impl Persons {
     }
     pub fn find() {}
 
-    pub fn all() {
+    pub fn all() -> Result<Vec<Persons>, Error> {
         use self::schema::persons;
 
         let database = Database::init();
@@ -45,9 +45,11 @@ impl Persons {
         match persons::table.get_results::<Persons>(&mut connection) {
             Ok(res) => {
                 println!(":ORDENNE:database:client:all() {:?}", res);
+                Ok(res)
             }
             Err(err) => {
                 println!(":ORDENNE:database:client:all() exception: {:?}", err);
+                Err(err)
             }
         }
     }

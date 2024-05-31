@@ -13,7 +13,7 @@
 		<DialogHeader>
 			<DialogTitle><i class="ri-shield-star-fill mr-2"></i>Ordenee</DialogTitle>
 			<DialogDescription>
-				Um comando foi executado e a <TextHightLighter>Ordenee IA</TextHightLighter> esta processando,
+				Um comando foi executado e a <TextHightLighter>Ordenee AI</TextHightLighter> esta processando,
 				aguarde...<br />
 			</DialogDescription>
 		</DialogHeader>

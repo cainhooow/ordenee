@@ -28,6 +28,7 @@ fn main() {
             commands::payment_rest::find_payment_method,
             commands::payment_rest::load_payments,
             commands::clients_rest::add_client,
+            commands::clients_rest::load_clients,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

@@ -1,7 +1,13 @@
 <script lang="ts">
 	import { ordeneeIADialog } from '../../../store';
 	import type { Action } from '../../../types/Command/Action';
-	import { commands, getCommand, handleCommand, mapCommandsAction, mapCommandsName } from '../../../utils/actions/Commands';
+	import {
+		commands,
+		getCommand,
+		handleCommand,
+		mapCommandsAction,
+		mapCommandsName
+	} from '../../../utils/actions/Commands';
 	import OrdeneeSentencer from '../../../utils/ordenee/OrdeneeSentencer';
 	import Input from '../../ui/Input/Input.svelte';
 
@@ -24,8 +30,8 @@
 		const commander = new OrdeneeSentencer();
 
 		ordeneeIADialog.set(true);
-		
-		commander.query(searchText, mapCommandsAction()).then(cmd => {
+
+		commander.query(searchText, mapCommandsAction()).then((cmd) => {
 			console.log(cmd);
 			getCommand(cmd)?.command.run();
 		});
@@ -37,16 +43,18 @@
 		<Input
 			id="command-bar"
 			class="p-1 w-full"
-			placeholder="Busque páginas/comandos"
+			placeholder="Busque comandos ou peça para a Ordenee AI"
 			oninput={searchHandled}
 		/>
 
-		<button on:click={search} class="rounded pr-3 pl-3 bg-purple-500 hover:bg-purple-700"><i class="ri-corner-down-left-fill"></i></button>
+		<button on:click={search} class="rounded pr-3 pl-3 bg-purple-500 hover:bg-purple-700"
+			><i class="ri-corner-down-left-fill"></i></button
+		>
 	</div>
 	<div class="mt-4 flex gap-3 flex-col">
 		{#if searchText === '' || searchText.length <= 0}
 			{#each commands as action}
-				<!-- {#if action.command.type !== 'app-action'} -->
+				{#if action.filtable}
 					<button
 						class="flex flex-col text-lg px-2 w-full border border-transparent hover:border-zinc-700 hover:bg-zinc-700/50 rounded"
 						on:click={(ev) => handleEvent(ev, action)}
@@ -54,7 +62,7 @@
 						{typeof action.action === 'object' ? action.action[0] : action.action}
 						<span class="text-sm text-zinc-500">{action.command.description}</span>
 					</button>
-				<!-- {/if} -->
+				{/if}
 			{/each}
 		{/if}
 	</div>

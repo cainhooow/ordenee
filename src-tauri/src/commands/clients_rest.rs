@@ -22,3 +22,19 @@ pub fn add_client(client: String) -> Result<String, ()> {
         }
     }
 }
+
+#[tauri::command]
+pub fn load_clients() -> Result<String, ()> {
+    println!(":ORDENNE:command:load_clients()");
+
+    match Persons::all() {
+        Ok(persons) => {
+            let message = serde_json::to_string(&persons).unwrap();
+            Ok(message)
+        }
+        Err(err) => {
+            println!(":ORDENNE:command:load_clients excpetion {:?}", err);
+            Err(())
+        }
+    }
+}

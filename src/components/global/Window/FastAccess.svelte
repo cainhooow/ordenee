@@ -5,9 +5,9 @@ Acesso rápido
 	<li class="flex">
 		<a class="hover:bg-zinc-600/50 w-full p-[0.2rem] pl-2" href="/clients"> Clientes </a>
 	</li>
-	<li class="flex">
+	<!-- <li class="flex">
 		<a class=" hover:bg-zinc-600/50 w-full p-[0.2rem] pl-2" href="/technicals"> Técnicos </a>
-	</li>
+	</li> -->
 	<li class="flex">
 		<a class=" hover:bg-zinc-600/50 w-full p-[0.2rem] pl-2" href="/equipaments"> Equipamentos </a>
 	</li>

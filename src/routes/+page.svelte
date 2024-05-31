@@ -35,12 +35,7 @@
 			<i class="ri-team-fill"></i>
 			Clientes
 		</Anchor>
-
-		<Anchor href="/technicals" type="button">
-			<i class="ri-team-fill"></i>
-			Tecnicos
-		</Anchor>
-
+		
 		<Anchor href="/equipaments/new-equipament" type="button">
 			<i class="ri-briefcase-2-line"></i>
 			Adicionar equipamento

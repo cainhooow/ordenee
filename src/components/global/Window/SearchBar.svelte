@@ -47,7 +47,7 @@
 >
 	<div class="text-zinc-500">
 		<i class="ri-search-2-line"></i>
-		<span>Ordenee IA</span>
+		<span>Ordenee AI</span>
 	</div>
 </button>
 {#if commandBarVisible}

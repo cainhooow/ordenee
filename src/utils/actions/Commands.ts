@@ -16,7 +16,39 @@ export const commands: Array<Action> = [
 			run(...args) {
 				window.location.href = '/';
 			}
-		}
+		},
+		filtable: true
+	},
+	{
+		action: ['Adicionar um novo cliente', 'Adicionar cliente', 'Página para adicionar clientes'],
+		command: {
+			name: 'go-to-client-add',
+			type: 'redirect',
+			code: 102,
+			description: 'Ir para clientes',
+			run(...args) {
+				window.location.href = '/clients/new-client';
+			}
+		},
+		filtable: true
+	},
+	{
+		action: [
+			'Ver clientes',
+			'Ver todos os clientes',
+			'Página para ver os clientes',
+			'Ir para clientes'
+		],
+		command: {
+			name: 'go-to-client-add',
+			type: 'redirect',
+			code: 102,
+			description: 'Ir para clientes',
+			run(...args) {
+				window.location.href = '/clients';
+			}
+		},
+		filtable: false
 	},
 	{
 		action: 'Adicionar formas de pagamentos',
@@ -28,7 +60,8 @@ export const commands: Array<Action> = [
 			run() {
 				window.location.href = '/paymentmethods/new-method';
 			}
-		}
+		},
+		filtable: true
 	},
 	{
 		action: ['Fechar o aplicativo', 'Close App'],
@@ -40,7 +73,8 @@ export const commands: Array<Action> = [
 			async run() {
 				await appWindow.close();
 			}
-		}
+		},
+		filtable: false
 	}
 ];
 
