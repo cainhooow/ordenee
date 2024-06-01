@@ -40,7 +40,7 @@
 		<div class="mb-3 mt-1">
 			{#if isNow()}
 				<span
-					class="bg-indigo-800 rounded pl-3 pr-3 p-[0.09rem] text-center mt-2 shadow-lg shadow-indigo-500/10 text-indigo-300 font-semibold"
+					class="bg-indigo-800 rounded pl-3 pr-3 p-[0.09rem] text-center mt-2 shadow-lg shadow-indigo-500/10 text-indigo-200 font-semibold"
 					>#Novo</span
 				>
 			{/if}
@@ -48,7 +48,7 @@
 
 		<span class="mb-2 text-zinc-300">
 			<i class="ri-calendar-line"></i>
-			{isNow() ? 'Hoje' : new Date(client.created_at).toLocaleDateString('pt-br')}
+			{isNow() ? 'Recentemente' : new Date(client.created_at).toLocaleDateString('pt-br')}
 			as {new Date(client.created_at).getHours()} horas e {new Date(client.created_at).getMinutes()} minutos
 		</span>
 		<span class="mb-2 text-zinc-300">

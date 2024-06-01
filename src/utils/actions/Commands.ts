@@ -9,7 +9,7 @@ export const commands: Array<Action> = [
 			'Me leve para a página principal'
 		],
 		command: {
-			name: 'go-to-home-page',
+			name: '/goto-home',
 			type: 'redirect',
 			code: 100,
 			description: 'Voltar para a página inicial',
@@ -22,7 +22,7 @@ export const commands: Array<Action> = [
 	{
 		action: ['Adicionar um novo cliente', 'Adicionar cliente', 'Página para adicionar clientes'],
 		command: {
-			name: 'go-to-client-add',
+			name: '/goto-clientadd',
 			type: 'redirect',
 			code: 102,
 			description: 'Ir para clientes',
@@ -40,7 +40,7 @@ export const commands: Array<Action> = [
 			'Ir para clientes'
 		],
 		command: {
-			name: 'go-to-client-add',
+			name: '/goto-clientlist',
 			type: 'redirect',
 			code: 102,
 			description: 'Ir para clientes',
@@ -53,7 +53,7 @@ export const commands: Array<Action> = [
 	{
 		action: 'Adicionar formas de pagamentos',
 		command: {
-			name: 'go-to-payment-methods',
+			name: '/goto-addpayment',
 			type: 'redirect',
 			code: 101,
 			description: 'Ir para formas de pagamentos',
@@ -64,9 +64,22 @@ export const commands: Array<Action> = [
 		filtable: true
 	},
 	{
+		action: ['Formas de pagamento', 'Ir para formas de pagamento', 'Página de formas de pagamento'],
+		command: {
+			name: '/goto-paymentlist',
+			type: 'redirect',
+			code: 101,
+			description: 'Ir para formas de pagamentos',
+			run() {
+				window.location.href = '/paymentmethods';
+			}
+		},
+		filtable: false
+	},
+	{
 		action: ['Fechar o aplicativo', 'Close App'],
 		command: {
-			name: 'close-app',
+			name: '/close-app',
 			type: 'app-action',
 			code: 0,
 			description: 'Close app',

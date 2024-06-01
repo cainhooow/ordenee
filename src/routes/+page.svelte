@@ -5,14 +5,14 @@
 </script>
 
 <section class="relative overflow-hidden">
-	<img class="object-cover h-[550px]" src={OrdeneeBanner} alt="presentation" />
+	<img class="object-cover h-[750px]" src={OrdeneeBanner} alt="presentation" />
 	<div
-		class="absolute flex items-end bg-gradient-to-t from-zinc-950 to-zinc-950/70 w-full h-[550px] top-0 bottom-0 p-5 z-0"
+		class="absolute flex items-end bg-gradient-to-t from-[#080808] to-zinc-950/90 w-full h-[750px] top-0 bottom-0 p-5 z-0"
 	>
 		<section class="">
-			<h1 class="text-5xl w-2/3 drop-shadow-lg mb-3">Olá, seja bem-vindo ao Ordenne!</h1>
+			<h1 class="text-5xl w-2/3 drop-shadow-lg mb-3">Olá, seja bem-vindo ao Ordenee!</h1>
 			<p class="mb-3">
-				Obrigado por utilizar nossos serviços. O Ordenne foi feito para gerenciar seus serviços,
+				Obrigado por utilizar nossos serviços. O Ordenee foi feito para gerenciar seus serviços,
 				clientes e a sua empresa!
 				<br /><br />
 				Aqui está um guia de começo: <br /><br />

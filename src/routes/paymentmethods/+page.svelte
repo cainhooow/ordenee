@@ -10,7 +10,7 @@
 <ClientHeader title={'Formas de pagamento'}>
 	<div slot="buttons-actions">
 		<Anchor href="/paymentmethods/new-method" type="button">
-			<i class="ri-card"></i>
+			<i class="ri-bank-card-line"></i>
 			Nova forma de pagamento
 		</Anchor>
 	</div>

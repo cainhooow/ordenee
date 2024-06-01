@@ -2,16 +2,16 @@
 	import { ordeneeIADialog } from '../../../store';
 	import type { Action } from '../../../types/Command/Action';
 	import {
-		commands,
+		commands as commandList,
 		getCommand,
 		handleCommand,
-		mapCommandsAction,
-		mapCommandsName
+		mapCommandsAction
 	} from '../../../utils/actions/Commands';
 	import OrdeneeSentencer from '../../../utils/ordenee/OrdeneeSentencer';
 	import Input from '../../ui/Input/Input.svelte';
 
 	let searchText = '';
+	let commands = commandList;
 
 	//NOTE - ENDING FOR ACTIONS;
 	//NOTE - Handle actions for commands
@@ -23,6 +23,11 @@
 	function searchHandled(ev: InputEvent) {
 		ev.preventDefault();
 		searchText = (ev.target as HTMLInputElement).value;
+
+		if (searchText.includes('/')) {
+			let commandSearch = commandList.filter((act) => act.command.name.includes(searchText));
+			commands = commandSearch;
+		}
 	}
 
 	function search(ev: MouseEvent) {
@@ -52,7 +57,7 @@
 		>
 	</div>
 	<div class="mt-4 flex gap-3 flex-col">
-		{#if searchText === '' || searchText.length <= 0}
+		{#if searchText === '' || (searchText.length <= 0 && !searchText.includes('/'))}
 			{#each commands as action}
 				{#if action.filtable}
 					<button
@@ -65,5 +70,21 @@
 				{/if}
 			{/each}
 		{/if}
+		{#if searchText.includes('/')}
+			{#each commands as action}
+				<button
+					class="flex flex-col text-lg px-2 w-full border border-transparent hover:border-zinc-700 hover:bg-zinc-700/50 rounded"
+					on:click={(ev) => handleEvent(ev, action)}
+				>
+					{typeof action.action === 'object' ? action.action[0] : action.action}
+					<span class="text-sm text-zinc-500">{action.command.name}</span>
+				</button>
+			{/each}
+		{/if}
+
+		<span class="text-sm text-zinc-300 font-semibold"
+			>Você ira requisitar uma ação para Ordenee AI ao clicar em <i class="ri-corner-down-left-fill"
+			></i></span
+		>
 	</div>
 </div>

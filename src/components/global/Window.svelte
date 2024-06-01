@@ -34,7 +34,7 @@
 	data-tauri-drag-region="true"
 >
 	<div class="flex gap-3 items-center">
-		<a class="text-2xl border-r border-r-zinc-700 pr-2" href="/">Ordenne</a>
+		<a class="text-2xl border-r border-r-zinc-700 pr-2" href="/">Ordenee</a>
 		<div class="flex gap-[0.1rem] items-center">
 			<div
 				class="relative px-2 ps-2 border border-transparent rounded group hover:bg-zinc-800/50 hover:border-zinc-700"

@@ -51,58 +51,68 @@
 </ClientHeader>
 
 <div class="container mx-auto">
-	<h1 class="text-3xl">Adicionar novo cliente</h1>
-	<p class="text-gray">Campos com "<span class="text-danger">*</span>" são obrigatorios</p>
-	<form action="POST" class="mt-[1.5rem]">
-		<section class="flex mb-[1.5rem] gap-3">
-			<FloatingInputContainer class="w-full">
-				<FloatingInput
-					class="border w-full"
-					type="text"
-					placeholder="nome"
-					name="nome"
-					id="nome"
-					required
-				/>
-				<FloatingInputLabel for="method">Nome</FloatingInputLabel>
-			</FloatingInputContainer>
-			<FloatingInputContainer class="w-full">
-				<FloatingInput
-					class="border w-full"
-					type="email"
-					placeholder="email"
-					name="email"
-					id="email"
-				/>
-				<FloatingInputLabel for="method">Email</FloatingInputLabel>
-			</FloatingInputContainer>
-		</section>
-		<section class="flex mb-[1.5rem] gap-3">
-			<FloatingInputContainer class="w-full">
-				<FloatingInput class="border w-full" type="text" placeholder="cpf" name="cpf" id="cpf" />
-				<FloatingInputLabel for="method">CPF</FloatingInputLabel>
-			</FloatingInputContainer>
+	<section>
+		<h1 class="text-3xl">Adicionar novo cliente</h1>
+		<p class="text-gray">Campos com "<span class="text-danger">*</span>" são obrigatorios</p>
+		<form action="POST" class="mt-[1.5rem]">
+			<section class="flex mb-[1.5rem] gap-3">
+				<FloatingInputContainer class="w-full">
+					<FloatingInput
+						class="border w-full"
+						type="text"
+						placeholder="nome"
+						name="nome"
+						id="nome"
+						required
+					/>
+					<FloatingInputLabel for="method">Nome</FloatingInputLabel>
+				</FloatingInputContainer>
+				<FloatingInputContainer class="w-full">
+					<FloatingInput
+						class="border w-full"
+						type="email"
+						placeholder="email"
+						name="email"
+						id="email"
+					/>
+					<FloatingInputLabel for="method">Email</FloatingInputLabel>
+				</FloatingInputContainer>
+			</section>
+			<section class="flex mb-[1.5rem] gap-3">
+				<FloatingInputContainer class="w-full">
+					<FloatingInput class="border w-full" type="text" placeholder="cpf" name="cpf" id="cpf" />
+					<FloatingInputLabel for="method">CPF</FloatingInputLabel>
+				</FloatingInputContainer>
 
-			<FloatingInputContainer class="w-full">
-				<FloatingInput
-					class="border w-full"
-					type="telephony"
-					placeholder="telefone"
-					name="telefone"
-					id="telefone"
-				/>
-				<FloatingInputLabel for="method">Telefone</FloatingInputLabel>
-			</FloatingInputContainer>
-		</section>
-		<section class="flex gap-3">
-			<Button type="button" onclick={formSubmit}>
-				<i class="ri-user-add-line"></i>
-				Adicionar
+				<FloatingInputContainer class="w-full">
+					<FloatingInput
+						class="border w-full"
+						type="telephony"
+						placeholder="telefone"
+						name="telefone"
+						id="telefone"
+					/>
+					<FloatingInputLabel for="method">Telefone</FloatingInputLabel>
+				</FloatingInputContainer>
+			</section>
+			<section class="flex gap-3">
+				<Button type="button" onclick={formSubmit}>
+					<i class="ri-user-add-line"></i>
+					Adicionar
+				</Button>
+				<Button type="reset">
+					<i class="ri-delete-back-2-line"></i>
+					Limpar
+				</Button>
+			</section>
+		</form>
+	</section>
+	<section>
+		<div class="flex justify-end mt-5">
+			<Button class="bg-green-500/75 p-2 pr-4 pl-4 rounded text-green-100 font-bold">
+				<i class="ri-map-pin-add-line bg-green-200 text-green-900 p-1 rounded mr-1"></i>
+				Adicionar endereços
 			</Button>
-			<Button type="reset">
-				<i class="ri-delete-back-2-line"></i>
-				Limpar
-			</Button>
-		</section>
-	</form>
+		</div>
+	</section>
 </div>

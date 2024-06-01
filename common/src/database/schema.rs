@@ -12,6 +12,17 @@ diesel::table! {
 }
 
 diesel::table! {
+    personaddresses(id) {
+        id -> Integer,
+        address -> VarChar,
+        home_num -> Nullable<Integer>,
+        street -> Nullable<VarChar>,
+        city -> Nullable<VarChar>,
+        person_id -> Integer
+    }
+}
+
+diesel::table! {
     equipaments(id) {
         id -> Integer,
         name -> VarChar,
@@ -32,3 +43,6 @@ diesel::table! {
         updated_at -> Nullable<Date>
     }
 }
+
+diesel::joinable!(personaddresses -> persons (id));
+diesel::allow_tables_to_appear_in_same_query!(persons, personaddresses);
