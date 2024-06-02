@@ -15,7 +15,7 @@
 		</Anchor>
 	</div>
 </ClientHeader>
-<section class="container flex flex-col gap-[0.5rem] p-[1.5rem]">
+<section class="mx-5 flex flex-col gap-[0.5rem]">
 	{#each methods as method}
 		<MethodsList {method} />
 	{/each}

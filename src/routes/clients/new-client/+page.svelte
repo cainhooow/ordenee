@@ -7,10 +7,28 @@
 	import ErrorClientAdd from '../../../components/global/Dialogs/CommonError.dialog.empt.svelte';
 
 	import type { Person } from '../../../types/Person';
-
 	import { invoke } from '@tauri-apps/api';
+	import { crossfade } from 'svelte/transition';
+	import { quintIn } from 'svelte/easing';
+	import { flip } from 'svelte/animate';
+
 	export let dialogVisible = false;
 	export let addresses = [] as Array<{ formid: number }>;
+
+	const [send, receive] = crossfade({
+		fallback(node, params) {
+			const style = getComputedStyle(node);
+			const transform = style.transform === 'none' ? '' : style.transform;
+
+			return {
+				duration: 160,
+				easing: quintIn,
+				css: (t) => `transform: ${transform} scale(${t});
+				opacity: ${t}
+				`
+			};
+		}
+	});
 
 	async function formSubmit(e: MouseEvent) {
 		e.preventDefault();
@@ -77,17 +95,19 @@
 					allowedAddress.map(async (address) => {
 						await invoke('create_address', {
 							address: JSON.stringify({ person_id: user.id, ...address })
-						}).then((d) => {
-							window.location.href = "/clients"
-						}).catch((err) => {
-							console.error(err);
-						});
+						})
+							.then((d) => {
+								window.location.href = '/clients';
+							})
+							.catch((err) => {
+								console.error(err);
+							});
 					});
 
 					return;
 				}
 
-				window.location.href = "/clients"
+				window.location.href = '/clients';
 			})
 			.catch((err) => {
 				console.error(err);
@@ -100,8 +120,7 @@
 
 	function addAddress(ev: MouseEvent) {
 		ev.preventDefault();
-		addresses.push({ formid: addresses.length + 1 }) as any;
-		addresses = addresses;
+		addresses = [...addresses, { formid: addresses.length + 1 }];
 	}
 
 	function rmAddress(ev: MouseEvent) {
@@ -115,16 +134,16 @@
 	<ErrorClientAdd closeAct={dialog} />
 {/if}
 
-<ClientHeader justifyContent="space-between">
+<ClientHeader>
 	<div slot="actions-additionals">
-		<a href="/clientes">
+		<a href="/clients">
 			<i class="ri-arrow-left-s-line"></i> Voltar
 		</a>
 	</div>
 </ClientHeader>
 
-<div class="container mx-auto mb-20">
-	<section>
+<div class="mx-5 mb-20 mt-10">
+	<section class="border border-zinc-700 bg-zinc-600/10 py-5 px-5 rounded-md">
 		<h1 class="text-3xl">Adicionar novo cliente</h1>
 		<p class="text-gray">Campos com "<span class="text-danger">*</span>" são obrigatorios</p>
 		<form action="POST" class="mt-[1.5rem]">
@@ -180,9 +199,18 @@
 			</section>
 		</form>
 	</section>
-	<section class="mt-10">
-		{#each addresses as address}
-			<form action="POST" class="mt-[1.5rem] mb-20">
+	<section
+		class="mt-5 {addresses.length > 0
+			? 'border border-zinc-700 bg-zinc-600/10 py-5 px-5 rounded-md'
+			: ''}"
+	>
+		{#each addresses as address (address.formid)}
+			<form
+				action="POST"
+				class="mb-10 transition-all delay-150"
+				in:receive={{ key: address.formid }}
+				out:send={{ key: address.formid }}
+			>
 				<h1 class="text-2xl">Linha de endereço {address.formid}</h1>
 				<section class="flex mb-[1.5rem] gap-3 mt-[1.5rem]">
 					<FloatingInputContainer class="w-full">

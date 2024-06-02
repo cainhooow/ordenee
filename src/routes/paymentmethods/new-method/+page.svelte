@@ -43,7 +43,7 @@
 	<ErrorPaymentAdd closeAct={dialog} />
 {/if}
 
-<ClientHeader justifyContent="end" title="">
+<ClientHeader title="">
 	<div slot="actions-additionals">
 		<a href="/paymentmethods">
 			<i class="ri-arrow-left-s-line"></i> Voltar
@@ -51,7 +51,7 @@
 	</div>
 </ClientHeader>
 
-<div class="container mx-auto">
+<div class="mx-5 mb-20 mt-10 border border-zinc-700 bg-zinc-600/10 py-5 px-5 rounded-md">
 	<h1 class="text-2xl font-bold border-b border-b-zinc-500 pb-2">
 		Adicionar nova forma de pagamento
 	</h1>

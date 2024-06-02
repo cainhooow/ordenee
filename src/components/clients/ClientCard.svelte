@@ -1,5 +1,11 @@
 <script lang="ts">
 	import type { Person } from '../../types/Person';
+	
+	import { invoke } from '@tauri-apps/api';
+	import { crossfade } from 'svelte/transition';
+	import { quintIn } from 'svelte/easing';
+	import { flip } from 'svelte/animate';
+
 
 	export let client = {} as Person;
 
@@ -7,7 +13,7 @@
 		let day = 24 * 60 * 60 * 1000;
 		let diff = Date.parse(client.created_at) - Date.now();
 
-		return diff >= day;
+		return diff <= day;
 	}
 
 	function randomColor() {
@@ -23,9 +29,27 @@
 		let randomIndex = Math.floor(colors.length * Math.random());
 		return colors[randomIndex];
 	}
+
+
+	const [send, receive] = crossfade({
+		fallback(node, params) {
+			const style = getComputedStyle(node);
+			const transform = style.transform === 'none' ? '' : style.transform;
+
+			return {
+				duration: 200,
+				easing: quintIn,
+				css: (t) => `transform: ${transform} scale(${t});
+				opacity: ${t}
+				`
+			};
+		}
+	});
+
+
 </script>
 
-<section class="flex border border-zinc-700 p-5 rounded gap-5">
+<section class="flex border border-zinc-700 p-5 rounded gap-5" in:receive={{ key: client.id }} out:send={{ key: client.id }}>
 	<div>
 		<div
 			class="flex h-[4rem] w-[4rem] {randomColor()} rounded-full text-center items-center justify-center shadow-lg shadow-indigo-500/10"

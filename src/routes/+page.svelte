@@ -4,20 +4,21 @@
 	import Anchor from '../components/ui/Button/Anchor.svelte';
 </script>
 
-<section class="relative overflow-hidden">
-	<img class="object-cover h-[750px]" src={OrdeneeBanner} alt="presentation" />
+<section
+	class="relative overflow-hidden m-3 rounded-md transition-all delay-75 shadow-[0_0px_300px_100px_rgb(0,0,0/0.1)] shadow-black/30 hover:shadow-[0_0px_500px_100px_rgb(0,0,0/0.1)] hover:shadow-green-600/10 z-0"
+>
 	<div
-		class="absolute flex items-end bg-gradient-to-t from-[#080808] to-zinc-950/90 w-full h-[750px] top-0 bottom-0 p-5 z-0"
+		class="relative flex items-end bg-gradient-to-tr from-black to-zinc-950/10 w-full top-0 bottom-0 p-5 z-0 rounded-md"
 	>
-		<section class="">
-			<h1 class="text-5xl w-2/3 drop-shadow-lg mb-3">Olá, seja bem-vindo ao Ordenee!</h1>
+		<section class="p-2">
+			<h1 class="text-4xl w-2/3 mb-3">Olá, seja bem-vindo ao Ordenee!</h1>
 			<p class="mb-3">
 				Obrigado por utilizar nossos serviços. O Ordenee foi feito para gerenciar seus serviços,
 				clientes e a sua empresa!
 				<br /><br />
 				Aqui está um guia de começo: <br /><br />
-				- Optar primeiramente em configurar os tecnicos, formas de pagamento e equipamentos, clientes
-				são adicionados quando uma nova ordem é criada;<br /><br />
+				- Optar primeiramente em configurar as formas de pagamento e equipamentos, clientes são adicionados
+				quando uma nova ordem é criada;<br /><br />
 				- Ordens: Todas as ordens podem ser encontradas na Tab "Ordens";<br /><br />
 				- Empresa: O sistema pode ser modificado de acordo com a sua empresa, você pode adicionar sua
 				logo e informações adicionais.
@@ -25,9 +26,10 @@
 		</section>
 	</div>
 </section>
-<section class="container mx-auto mt-5 mb-10">
-	<section class="flex gap-3 text-3xl border-b border-b-zinc-600 pb-3 mb-3">
-		<i class="ri-menu-line"></i>
+<section
+	class="relative px-5 py-5 mx-5 z-10 border border-zinc-700 bg-zinc-600/10 rounded-md mt-10"
+>
+	<section class="flex gap-3 text-3xl">
 		<h1>Acesso rapido</h1>
 	</section>
 	<section class="flex flex-wrap basis-10 p-2 gap-3 pt-5 pb-5">
@@ -35,7 +37,7 @@
 			<i class="ri-team-fill"></i>
 			Clientes
 		</Anchor>
-		
+
 		<Anchor href="/equipaments/new-equipament" type="button">
 			<i class="ri-briefcase-2-line"></i>
 			Adicionar equipamento

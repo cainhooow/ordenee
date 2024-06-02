@@ -4,14 +4,16 @@ use common::database::{
 };
 
 #[tauri::command]
-pub fn create_address(address: String) -> Result<PersonAddresses, ()> {
+pub fn create_address(address: String) -> Result<PersonAddresses, String> {
     let address = serde_json::from_str::<AddressBase>(&address);
 
     let address = match address {
         Ok(address) => address,
         Err(err) => {
             println!(":ORDENEE:create_address() -> execption: {:?}", err);
-            return Err(());
+            let err = err.to_string();
+
+            return Err(err);
         }
     };
 
@@ -19,7 +21,7 @@ pub fn create_address(address: String) -> Result<PersonAddresses, ()> {
         Ok(address) => Ok(address),
         Err(err) => {
             println!("ORDENEE:create_address() -> execption: {:?}", err);
-            Err(())
+            Err(err.to_string())
         }
     }
 }
