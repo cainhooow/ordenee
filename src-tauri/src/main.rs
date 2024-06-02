@@ -19,7 +19,7 @@ fn main() {
 
             #[cfg(target_os = "windows")]
             apply_acrylic(&window, Some((0, 255, 0, 0)))
-            .expect("Unsupported platform! 'apply_blur' is only supported on Windows");
+                .expect("Unsupported platform! 'apply_blur' is only supported on Windows");
 
             Ok(())
         })
@@ -29,6 +29,7 @@ fn main() {
             commands::payment_rest::load_payments,
             commands::clients_rest::add_client,
             commands::clients_rest::load_clients,
+            commands::address_rest::create_address
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

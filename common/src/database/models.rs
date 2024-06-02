@@ -15,7 +15,9 @@ pub struct Persons {
     pub updated_at: Option<String>,
 }
 
-#[derive(Associations, Queryable, Selectable, Identifiable, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(
+    Associations, Queryable, Selectable, Identifiable, Debug, PartialEq, Serialize, Deserialize,
+)]
 #[diesel(table_name = super::schema::personaddresses)]
 #[diesel(belongs_to(Persons, foreign_key = person_id))]
 #[diesel(check_for_backend(diesel::sqlite::Sqlite))]
@@ -25,7 +27,9 @@ pub struct PersonAddresses {
     pub home_num: Option<i32>,
     pub street: Option<String>,
     pub city: Option<String>,
-    pub person_id: i32
+    pub person_id: i32,
+    pub created_at: String,
+    pub updated_at: Option<String>,
 }
 
 #[derive(Queryable, Selectable, Identifiable, Debug, PartialEq)]

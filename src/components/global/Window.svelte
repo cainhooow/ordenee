@@ -21,7 +21,7 @@
 
 	function closeApp(ev: MouseEvent) {
 		ev.preventDefault();
-		handleCommand('close-app', ev);
+		handleCommand('/close-app', ev);
 	}
 </script>
 

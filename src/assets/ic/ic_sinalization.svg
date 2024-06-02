@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="512"
+   height="512"
+   viewBox="0 0 512 512"
+   version="1.1"
+   id="svg1"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     showguides="true" />
+  <defs
+     id="defs1">
+    <rect
+       x="155.55228"
+       y="226.08611"
+       width="210.34193"
+       height="74.942192"
+       id="rect6" />
+    <rect
+       x="54.159901"
+       y="140.43788"
+       width="403.68021"
+       height="48.492004"
+       id="rect5" />
+    <rect
+       x="155.55228"
+       y="226.08611"
+       width="432.01968"
+       height="118.39607"
+       id="rect6-0" />
+    <rect
+       x="155.55228"
+       y="226.08611"
+       width="432.01968"
+       height="118.39607"
+       id="rect6-0-9" />
+    <rect
+       x="155.55228"
+       y="226.08611"
+       width="432.01968"
+       height="118.39607"
+       id="rect6-0-9-4" />
+    <rect
+       x="155.55228"
+       y="226.08611"
+       width="210.34193"
+       height="74.942192"
+       id="rect6-6" />
+    <filter
+       style="color-interpolation-filters:sRGB"
+       inkscape:label="Drop Shadow"
+       id="filter15"
+       x="-0.22498432"
+       y="-0.42862195"
+       width="1.3934301"
+       height="2.0531003">
+      <feFlood
+         result="flood"
+         in="SourceGraphic"
+         flood-opacity="0.537255"
+         flood-color="rgb(214,218,51)"
+         id="feFlood14" />
+      <feGaussianBlur
+         result="blur"
+         in="SourceGraphic"
+         stdDeviation="5.471125"
+         id="feGaussianBlur14" />
+      <feOffset
+         result="offset"
+         in="blur"
+         dx="-4.407295"
+         dy="6.000000"
+         id="feOffset14" />
+      <feComposite
+         result="comp1"
+         operator="in"
+         in="offset"
+         in2="flood"
+         id="feComposite14" />
+      <feComposite
+         result="comp2"
+         operator="over"
+         in="SourceGraphic"
+         in2="comp1"
+         id="feComposite15" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB"
+       inkscape:label="Drop Shadow"
+       id="filter19"
+       x="-0.053247442"
+       y="-0.74437073"
+       width="1.0918997"
+       height="2.8713945">
+      <feFlood
+         result="flood"
+         in="SourceGraphic"
+         flood-opacity="0.537255"
+         flood-color="rgb(214,218,51)"
+         id="feFlood18" />
+      <feGaussianBlur
+         result="blur"
+         in="SourceGraphic"
+         stdDeviation="4.863222"
+         id="feGaussianBlur18" />
+      <feOffset
+         result="offset"
+         in="blur"
+         dx="-4.407295"
+         dy="6.000000"
+         id="feOffset18" />
+      <feComposite
+         result="comp1"
+         operator="in"
+         in="offset"
+         in2="flood"
+         id="feComposite18" />
+      <feComposite
+         result="comp2"
+         operator="over"
+         in="SourceGraphic"
+         in2="comp1"
+         id="feComposite19" />
+    </filter>
+  </defs>
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#ffdd55;stroke-width:3.8"
+       id="rect1"
+       width="490.58795"
+       height="295.9902"
+       x="11.335793"
+       y="107.69004"
+       ry="10.076261" />
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.12482;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2"
+       width="478.59756"
+       height="283.99979"
+       x="17.756573"
+       y="114.11082"
+       ry="10.39816" />
+    <rect
+       style="fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:1.28987;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4"
+       width="463.508"
+       height="90.05658"
+       x="25.190653"
+       y="122.80443"
+       ry="13.854858" />
+    <text
+       xml:space="preserve"
+       id="text4"
+       style="font-size:42.6667px;font-family:'Varela Round';-inkscape-font-specification:'Varela Round';white-space:pre;shape-inside:url(#rect5);fill:#ffd42a;fill-opacity:1;stroke:none;stroke-width:1.1;stroke-dasharray:none;stroke-opacity:1"
+       transform="translate(97.613776,6.1107011)"><tspan
+         x="54.160156"
+         y="178.30242"
+         id="tspan3">CUIDADO</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text5"
+       style="font-size:42.6667px;font-family:'Varela Round';-inkscape-font-specification:'Varela Round';white-space:pre;shape-inside:url(#rect6);fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:1.1;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter15)"
+       transform="matrix(1.2827612,0,0,1.2827612,1.022849,-63.574332)"><tspan
+         x="155.55273"
+         y="263.95086"
+         id="tspan4">404</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text5-2"
+       style="font-size:22.8673px;font-family:'Varela Round';-inkscape-font-specification:'Varela Round';white-space:pre;shape-inside:url(#rect6-6);fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:1.1;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(1.2827612,0,0,1.2827612,-72.863471,-8.233536)"><tspan
+         x="155.55273"
+         y="246.37972"
+         id="tspan5">Página sem saida</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text5-0"
+       style="font-size:16px;font-family:'Varela Round';-inkscape-font-specification:'Varela Round';white-space:pre;shape-inside:url(#rect6-0);fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:1.1;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter19)"
+       transform="translate(-53.876399,100.82912)"><tspan
+         x="155.55273"
+         y="240.28527"
+         id="tspan6">A página requisitada não foi encontrada</tspan></text>
+    <rect
+       style="fill:#ffdd55;fill-opacity:1;stroke:none;stroke-width:1.39221;stroke-dasharray:none;stroke-opacity:1"
+       id="rect19"
+       width="108.94957"
+       height="5.6678967"
+       x="351.72449"
+       y="395.17834"
+       ry="0"
+       rx="0" />
+    <text
+       xml:space="preserve"
+       id="text5-0-4-3"
+       style="font-size:10.6667px;font-family:'Varela Round';-inkscape-font-specification:'Varela Round';white-space:pre;shape-inside:url(#rect6-0-9-4);fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:1.1;stroke-dasharray:none;stroke-opacity:1"
+       transform="translate(202.60741,165.00315)"><tspan
+         x="155.55273"
+         y="235.55219"
+         id="tspan7">@drkryz</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text5-0-4"
+       style="font-size:10.6667px;font-family:'Varela Round';-inkscape-font-specification:'Varela Round';white-space:pre;shape-inside:url(#rect6-0-9);fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:1.1;stroke-dasharray:none;stroke-opacity:1"
+       transform="translate(254.55825,165.05681)"><tspan
+         x="155.55273"
+         y="235.55219"
+         id="tspan8">Ordenee</tspan></text>
+  </g>
+</svg>

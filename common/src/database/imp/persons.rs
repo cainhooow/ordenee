@@ -1,9 +1,16 @@
 use std::vec;
 
-use diesel::{prelude::Insertable, result::Error, RunQueryDsl};
+use diesel::{
+    prelude::Insertable, result::Error, ExpressionMethods, QueryDsl, RunQueryDsl, SelectableHelper,
+};
+
 use serde::{Deserialize, Serialize};
 
-use crate::database::{models::Persons, schema, Database};
+use crate::database::{
+    models::Persons,
+    schema::{self},
+    Database,
+};
 
 #[derive(Insertable, Serialize, Deserialize)]
 #[diesel(table_name = schema::persons)]
@@ -16,17 +23,28 @@ pub struct PersonsBase<'r> {
 }
 
 impl Persons {
-    pub fn create(person: PersonsBase) -> Result<(), Error> {
+    pub fn create(person: PersonsBase) -> Result<Persons, Error> {
         let database = Database::init();
         let mut connection = database.connection;
 
-        match diesel::insert_into(schema::persons::table)
+        use self::schema::persons::dsl::*;
+        use self::schema::persons::*;
+
+        match diesel::insert_into(persons)
             .values(vec![&person])
             .execute(&mut connection)
         {
             Ok(_) => {
                 println!(":ORDENNE:database:client:create()");
-                Ok(())
+
+                let last_person = persons
+                    .select(id)
+                    .order(id.desc())
+                    .first::<i32>(&mut connection)?;
+
+                let person = Self::person(last_person)?;
+
+                Ok(person)
             }
             Err(err) => {
                 println!(":ORDENNE:database:client:create() exception: {:?}", err);
@@ -34,7 +52,22 @@ impl Persons {
             }
         }
     }
-    pub fn find() {}
+    pub fn person(person: i32) -> Result<Persons, Error> {
+        use self::schema::persons::dsl::*;
+        use self::schema::persons::*;
+
+        let database = Database::init();
+        let mut connection = database.connection;
+
+        match persons
+            .filter(id.eq(person))
+            .select(Persons::as_select())
+            .get_result(&mut connection)
+        {
+            Ok(person) => Ok(person),
+            Err(err) => Err(err),
+        }
+    }
 
     pub fn all() -> Result<Vec<Persons>, Error> {
         use self::schema::persons;

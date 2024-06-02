@@ -14,11 +14,13 @@ diesel::table! {
 diesel::table! {
     personaddresses(id) {
         id -> Integer,
-        address -> VarChar,
+        address -> Text,
         home_num -> Nullable<Integer>,
-        street -> Nullable<VarChar>,
-        city -> Nullable<VarChar>,
-        person_id -> Integer
+        street -> Nullable<Text>,
+        city -> Nullable<Text>,
+        person_id -> Integer,
+        created_at -> Date,
+        updated_at -> Nullable<Date>
     }
 }
 

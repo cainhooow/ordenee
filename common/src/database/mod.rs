@@ -1,6 +1,6 @@
+pub mod imp;
 pub mod models;
 pub mod schema;
-pub mod imp;
 
 use crate::fs;
 use diesel::{sqlite::Sqlite, Connection, SqliteConnection};
@@ -8,8 +8,7 @@ use std::error::Error;
 
 use diesel_migrations::{embed_migrations, EmbeddedMigrations, MigrationHarness};
 pub const MIGRATIONS: EmbeddedMigrations =
-
-embed_migrations!("F:\\ordenee\\common\\src\\database\\migrations");
+    embed_migrations!("F:\\ordenee\\common\\src\\database\\migrations");
 
 pub struct Database {
     pub connection: SqliteConnection,

@@ -1,7 +1,7 @@
 use common::database::{imp::persons::PersonsBase, models::Persons};
 
 #[tauri::command]
-pub fn add_client(client: String) -> Result<String, ()> {
+pub fn add_client(client: String) -> Result<Persons, ()> {
     println!(":ORDENNE:command:add_client()->{:#?}", client);
 
     let client = serde_json::from_str::<PersonsBase>(&client);
@@ -15,7 +15,7 @@ pub fn add_client(client: String) -> Result<String, ()> {
     };
 
     match Persons::create(client) {
-        Ok(_) => Ok(String::from("created")),
+        Ok(person) => Ok(person),
         Err(err) => {
             println!(":ORDENNE:command:add_client() excpetion {:?}", err);
             Err(())

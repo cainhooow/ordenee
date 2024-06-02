@@ -15,7 +15,7 @@ impl Equipaments {
     pub fn create(equipament: EquipamentBase) {
         let database = Database::init();
         let mut connection = database.connection;
-        
+
         match diesel::insert_into(schema::equipaments::table)
             .values(vec![&equipament])
             .execute(&mut connection)
@@ -27,7 +27,6 @@ impl Equipaments {
                 println!(":ORDENNE:database:equipament:create() exception: {:?}", err);
             }
         }
-
     }
     pub fn find() {}
     pub fn all() {
@@ -36,11 +35,10 @@ impl Equipaments {
         let database = Database::init();
         let mut connection = database.connection;
 
-        match equipaments::table.get_results::<Equipaments>(&mut connection)
-        {
+        match equipaments::table.get_results::<Equipaments>(&mut connection) {
             Ok(res) => {
                 println!(":ORDENNE:database:equipaments:all() {:?}", res);
-            },
+            }
             Err(err) => {
                 println!(":ORDENNE:database:equipaments:all() exception: {:?}", err);
             }

@@ -7,7 +7,7 @@
 		let day = 24 * 60 * 60 * 1000;
 		let diff = Date.parse(client.created_at) - Date.now();
 
-		return diff <= day;
+		return diff >= day;
 	}
 
 	function randomColor() {
