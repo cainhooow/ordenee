@@ -1,5 +1,8 @@
 import type { Action } from '../../types/Command/Action';
 import { appWindow } from '@tauri-apps/api/window';
+import { invoke } from '@tauri-apps/api';
+import { OrdeneeNer } from '../ordenee/OrdeneeNer';
+import { ordeneeIADialog, ordeneeIADialogResults } from '../../store';
 
 export const commands: Array<Action> = [
 	{
@@ -14,7 +17,10 @@ export const commands: Array<Action> = [
 			code: 100,
 			description: 'Voltar para a página inicial',
 			run(...args) {
-				window.location.href = '/';
+				ordeneeIADialogResults.update((vs) => [...vs, "Certo! Indo para a página inicial..."]);
+				setTimeout(() => {
+					window.location.href = '/';
+				}, 3000)
 			}
 		},
 		filtable: true
@@ -27,11 +33,69 @@ export const commands: Array<Action> = [
 			code: 102,
 			description: 'Ir para clientes',
 			run(...args) {
-				window.location.href = '/clients/new-client';
+				ordeneeIADialogResults.update((vs) => [...vs, "Certo! Vamos para a página de adicionar clientes..."]);
+
+				setTimeout(() => {
+					window.location.href = '/clients/new-client';
+				}, 3000)
 			}
 		},
 		filtable: true
 	},
+
+	{
+		action: [
+			'Adicionar um o cliente com o nome',
+			'Criar um cliente com o nome',
+			'Crie um cliente com o nome'
+		],
+		command: {
+			name: '/goto-clientadd',
+			type: 'redirect',
+			code: 103,
+			description: 'Ir para clientes',
+			run(...args) {
+				const text: string = args[0].searchText;
+				ordeneeIADialogResults.update((vs) => [...vs, `Ok, Certo! aguarde...`]);
+
+				new OrdeneeNer().result(text).then(async (result) => {
+					ordeneeIADialogResults.update((vs) => [...vs, `Procurando o nome do cliente...`]);
+
+					const splitedText = text.split(' ');
+					ordeneeIADialogResults.update((vs) => [...vs, `Estou quebrando o seu texto em pedaços...`]);
+
+					const persons = result.filter((entities) => {
+						if (entities.label.includes('PERSON')) {
+							return splitedText.includes(entities.token);
+						}
+					});
+					ordeneeIADialogResults.update((vs) => [...vs, `Certo! Agora vamos adicionar o cliente...`]);
+
+					const mountName = persons.map((user) => {
+						return user.token;
+					});
+
+					await invoke('add_client', {
+						client: JSON.stringify({
+							name: mountName.join(' '),
+							email: null,
+							person_id: null,
+							tel_num: null,
+							is_technical: false
+						})
+					}).then((res) => {
+						ordeneeIADialogResults.update((vs) => [...vs, `Pronto! O cliente ${mountName.join(' ')} foi adicionado com sucesso! Vou lhe redirecionar para a página de clientes.`]);
+
+						setTimeout(() => {
+							window.location.href = '/clients';
+						}, 4000)
+					});
+				});
+			}
+		},
+		filtable: false
+	},
+
 	{
 		action: [
 			'Ver clientes',
@@ -42,7 +106,7 @@ export const commands: Array<Action> = [
 		command: {
 			name: '/goto-clientlist',
 			type: 'redirect',
-			code: 102,
+			code: 104,
 			description: 'Ir para clientes',
 			run(...args) {
 				window.location.href = '/clients';
@@ -55,7 +119,7 @@ export const commands: Array<Action> = [
 		command: {
 			name: '/goto-addpayment',
 			type: 'redirect',
-			code: 101,
+			code: 105,
 			description: 'Ir para formas de pagamentos',
 			run() {
 				window.location.href = '/paymentmethods/new-method';
@@ -68,7 +132,7 @@ export const commands: Array<Action> = [
 		command: {
 			name: '/goto-paymentlist',
 			type: 'redirect',
-			code: 101,
+			code: 106,
 			description: 'Ir para formas de pagamentos',
 			run() {
 				window.location.href = '/paymentmethods';

@@ -38,7 +38,7 @@
 
 		commander.query(searchText, mapCommandsAction()).then((cmd) => {
 			console.log(cmd);
-			getCommand(cmd)?.command.run();
+			getCommand(cmd)?.command.run({ searchText });
 		});
 	}
 </script>

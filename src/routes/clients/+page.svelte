@@ -4,30 +4,9 @@
 	import Anchor from '../../components/ui/Button/Anchor.svelte';
 	import type { Person } from '../../types/Person';
 
-	import { invoke } from '@tauri-apps/api';
-	import { crossfade } from 'svelte/transition';
-	import { quintIn } from 'svelte/easing';
-	import { flip } from 'svelte/animate';
-
 	export let data;
-
 	const clientsList = (data.clients as Person[]) ?? [];
 	let clients = clientsList;
-
-	const [send, receive] = crossfade({
-		fallback(node, params) {
-			const style = getComputedStyle(node);
-			const transform = style.transform === 'none' ? '' : style.transform;
-
-			return {
-				duration: 160,
-				easing: quintIn,
-				css: (t) => `transform: ${transform} scale(${t});
-				opacity: ${t}
-				`
-			};
-		}
-	});
 
 	function search(ev: any) {
 		const val = (ev.target as HTMLInputElement).value;

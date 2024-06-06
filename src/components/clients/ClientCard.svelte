@@ -49,7 +49,7 @@
 
 </script>
 
-<section class="flex border border-zinc-700 p-5 rounded gap-5" in:receive={{ key: client.id }} out:send={{ key: client.id }}>
+<section class="transition-all flex border border-zinc-700 p-5 rounded gap-5 hover:drop-shadow-[0_0_100px_rgb(255,0,255,1)]" in:receive={{ key: client.id }} out:send={{ key: client.id }}>
 	<div>
 		<div
 			class="flex h-[4rem] w-[4rem] {randomColor()} rounded-full text-center items-center justify-center shadow-lg shadow-indigo-500/10"

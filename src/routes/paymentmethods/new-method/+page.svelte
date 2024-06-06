@@ -51,7 +51,7 @@
 	</div>
 </ClientHeader>
 
-<div class="mx-5 mb-20 mt-10 border border-zinc-700 bg-zinc-600/10 py-5 px-5 rounded-md">
+<div class="transition-all mx-5 mb-20 mt-10 border border-zinc-700 bg-zinc-600/10 py-5 px-5 rounded-md  hover:drop-shadow-[0_0_300px_rgb(10,200,55,1)]">
 	<h1 class="text-2xl font-bold border-b border-b-zinc-500 pb-2">
 		Adicionar nova forma de pagamento
 	</h1>

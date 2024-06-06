@@ -143,7 +143,7 @@
 </ClientHeader>
 
 <div class="mx-5 mb-20 mt-10">
-	<section class="border border-zinc-700 bg-zinc-600/10 py-5 px-5 rounded-md">
+	<section class="transition-all border border-zinc-700 bg-zinc-600/10 py-5 px-5 rounded-md hover:drop-shadow-[0_0_400px_rgb(255,0,255,1)]">
 		<h1 class="text-3xl">Adicionar novo cliente</h1>
 		<p class="text-gray">Campos com "<span class="text-danger">*</span>" são obrigatorios</p>
 		<form action="POST" class="mt-[1.5rem]">
@@ -201,7 +201,7 @@
 	</section>
 	<section
 		class="mt-5 {addresses.length > 0
-			? 'border border-zinc-700 bg-zinc-600/10 py-5 px-5 rounded-md'
+			? 'transition-all border border-zinc-700 bg-zinc-600/10 py-5 px-5 rounded-md  hover:drop-shadow-[0_0_100px_rgb(10,200,55,0.2)]'
 			: ''}"
 	>
 		{#each addresses as address (address.formid)}
