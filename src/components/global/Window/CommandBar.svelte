@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ordeneeIADialog } from '../../../store';
+	import { ordeneeIADialog, ordeneeIADialogResults } from '../../../store';
 	import type { Action } from '../../../types/Command/Action';
 	import {
 		commands as commandList,
@@ -17,7 +17,7 @@
 	//NOTE - Handle actions for commands
 	function handleEvent(ev: MouseEvent, action: Action) {
 		ev.preventDefault();
-		handleCommand(action.command.name, ev);
+		handleCommand(action.command.name, { fromClick: true });
 	}
 
 	function searchHandled(ev: InputEvent) {
@@ -35,11 +35,26 @@
 		const commander = new OrdeneeSentencer();
 
 		ordeneeIADialog.set(true);
+		ordeneeIADialogResults.update((vs) => [
+			...vs,
+			`Olá, eu recebi seu pedido! Agora irei analisar.... Aguarde....`
+		]);
 
-		commander.query(searchText, mapCommandsAction()).then((cmd) => {
-			console.log(cmd);
-			getCommand(cmd)?.command.run({ searchText });
-		});
+		commander
+			.query(searchText, mapCommandsAction())
+			.then((cmd) => {
+				ordeneeIADialogResults.update((vs) => [
+					...vs,
+					`Pedido analisado, agora irei executar o comando requisitado: ${cmd}`
+				]);
+				getCommand(cmd)?.command.run({ searchText });
+			})
+			.catch((err) => {
+				ordeneeIADialogResults.update((vs) => [
+					...vs,
+					`Ops, ocorreu um erro ao processar a sua busca: ${err}`
+				]);
+			});
 	}
 </script>
 
@@ -72,13 +87,15 @@
 		{/if}
 		{#if searchText.includes('/')}
 			{#each commands as action}
-				<button
-					class="flex flex-col text-lg px-2 w-full border border-transparent hover:border-zinc-700 hover:bg-zinc-700/50 rounded"
-					on:click={(ev) => handleEvent(ev, action)}
-				>
-					{typeof action.action === 'object' ? action.action[0] : action.action}
-					<span class="text-sm text-zinc-500">{action.command.name}</span>
-				</button>
+				{#if action.filtable}
+					<button
+						class="flex flex-col text-lg px-2 w-full border border-transparent hover:border-zinc-700 hover:bg-zinc-700/50 rounded"
+						on:click={(ev) => handleEvent(ev, action)}
+					>
+						{typeof action.action === 'object' ? action.action[0] : action.action}
+						<span class="text-sm text-zinc-500">{action.command.name}</span>
+					</button>
+				{/if}
 			{/each}
 		{/if}
 

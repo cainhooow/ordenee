@@ -11,6 +11,7 @@
 	import { crossfade } from 'svelte/transition';
 	import { quintIn } from 'svelte/easing';
 	import { flip } from 'svelte/animate';
+	import IconButton from '../../../components/ui/Button/IconButton.svelte';
 
 	export let dialogVisible = false;
 	export let addresses = [] as Array<{ formid: number }>;
@@ -143,7 +144,9 @@
 </ClientHeader>
 
 <div class="mx-5 mb-20 mt-10">
-	<section class="transition-all border border-zinc-700 bg-zinc-600/10 py-5 px-5 rounded-md hover:drop-shadow-[0_0_400px_rgb(255,0,255,1)]">
+	<section
+		class="transition-all border border-zinc-700 bg-zinc-600/10 py-5 px-5 rounded-md hover:drop-shadow-[0_0_400px_rgb(255,0,255,1)]"
+	>
 		<h1 class="text-3xl">Adicionar novo cliente</h1>
 		<p class="text-gray">Campos com "<span class="text-danger">*</span>" são obrigatorios</p>
 		<form action="POST" class="mt-[1.5rem]">
@@ -262,21 +265,19 @@
 		{/each}
 		<div class="flex justify-end mt-5 gap-3">
 			{#if addresses.length > 0}
-				<Button
-					onclick={rmAddress}
-					class="bg-red-500/75 p-2 pr-4 pl-4 rounded text-red-200 font-bold"
-				>
-					<i class="ri-delete-bin-2-line bg-red-200 text-red-900 p-1 rounded mr-1"></i>
+				<IconButton onclick={rmAddress} class="bg-rose-400/20 border-rose-400 text-rose-100">
+					<div class="bg-rose-200 text-rose-900 pr-1 pl-1 rounded" slot="icon">
+						<i class="ri-delete-bin-2-line"></i>
+					</div>
 					Remover ultimo
-				</Button>
+				</IconButton>
 			{/if}
-			<Button
-				onclick={addAddress}
-				class="bg-green-500/75 p-2 pr-4 pl-4 rounded text-green-100 font-bold"
-			>
-				<i class="ri-map-pin-add-line bg-green-200 text-green-900 p-1 rounded mr-1"></i>
+			<IconButton onclick={addAddress} class="bg-lime-700/20 border-lime-700 text-lime-200">
+				<div class="bg-lime-200 text-lime-900 pr-1 pl-1 rounded" slot="icon">
+					<i class="ri-map-pin-add-line"></i>
+				</div>
 				Adicionar endereço
-			</Button>
+			</IconButton>
 		</div>
 	</section>
 </div>

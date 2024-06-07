@@ -8,8 +8,25 @@
 	import TextHightLighter from '../../ui/TextUtils/TextHightLighter.svelte';
 	import Ordenee from '../../../assets/ic/icon.png';
 	import { ordeneeIADialogResults } from '../../../store';
+	import { crossfade } from 'svelte/transition';
+	import { quintIn } from 'svelte/easing';
 
 	let ordeneeResults = [] as string[];
+
+	const [send, receive] = crossfade({
+		fallback(node, params) {
+			const style = getComputedStyle(node);
+			const transform = style.transform === 'none' ? '' : style.transform;
+
+			return {
+				duration: 10,
+				easing: quintIn,
+				css: (t) => `transform: ${transform} scale(${t});
+				opacity: ${t}
+				`
+			};
+		}
+	});
 
 	ordeneeIADialogResults.subscribe((vs) => (ordeneeResults = vs));
 </script>
@@ -19,17 +36,16 @@
 		<DialogHeader>
 			<DialogTitle>
 				<div class="flex gap-2 items-center">
-					<img class="w-10" src={Ordenee} alt="Ordenee icon ORDENEE AI"> 
+					<img class="w-10" src={Ordenee} alt="Ordenee icon ORDENEE AI" />
 					Ordenee
 				</div>
 			</DialogTitle>
 			<DialogDescription>
-				Um comando foi executado e a <TextHightLighter>Ordenee AI</TextHightLighter> esta processando,
-				aguarde...<br />
-
 				<div class="mt-3">
-					{#each ordeneeResults as result}
-						<p class="mb-2">{result}</p>
+					{#each ordeneeResults as result, i}
+						<p class="mb-2" in:receive={{ key: i + 1 }} out:send={{ key: i + 1 }}>
+							{result}
+						</p>
 					{/each}
 				</div>
 			</DialogDescription>

@@ -33,7 +33,7 @@ export class OrdeneeNer {
 	}
 
 	private _loadVocab() {
-		return fetch('/models/model-trained-1717684694396/vocab.json')
+		return fetch('/models/ordenee-model/vocab.json')
         .then(async (res) => {
             const vocab = await res.json();
             return vocab as Vocab;
@@ -41,7 +41,7 @@ export class OrdeneeNer {
 	}
 	private async _loadmodel() {
 		try {
-			return await tf.loadLayersModel('/models/model-trained-1717684694396/model.json');
+			return await tf.loadLayersModel('/models/ordenee-model/model.json');
 		} catch (err) {
 			throw err;
 		}

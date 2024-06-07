@@ -10,8 +10,8 @@
 	export let client = {} as Person;
 
 	function isNow() {
-		let day = 24 * 60 * 60 * 1000;
-		let diff = Date.parse(client.created_at) - Date.now();
+		let day = 86400000;
+		let diff = Math.abs(Date.parse(client.created_at) - Date.now());
 
 		return diff <= day;
 	}
