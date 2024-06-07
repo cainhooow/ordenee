@@ -17,10 +17,10 @@ export const commands: Array<Action> = [
 			code: 100,
 			description: 'Voltar para a página inicial',
 			run(...args) {
-				ordeneeIADialogResults.update((vs) => [...vs, "Certo! Indo para a página inicial..."]);
+				ordeneeIADialogResults.update((vs) => [...vs, 'Certo! Indo para a página inicial...']);
 				setTimeout(() => {
 					window.location.href = '/';
-				}, 3000)
+				}, 3000);
 			}
 		},
 		filtable: true
@@ -33,11 +33,23 @@ export const commands: Array<Action> = [
 			code: 102,
 			description: 'Ir para clientes',
 			run(...args) {
-				ordeneeIADialogResults.update((vs) => [...vs, "Certo! Vamos para a página de adicionar clientes..."]);
+				const arg = args[0][0] as { fromClick: boolean } | undefined;
+				const fromClick = Object.keys(arg || {}).includes('fromClick');
 
-				setTimeout(() => {
+				ordeneeIADialogResults.update((vs) => [
+					...vs,
+					'Certo! Vamos para a página de adicionar clientes...'
+				]);
+
+				if (!fromClick) {
+					setTimeout(() => {
+						window.location.href = '/clients/new-client';
+					}, 4000);
+					return;
+				} else {
 					window.location.href = '/clients/new-client';
-				}, 3000)
+					return;
+				}
 			}
 		},
 		filtable: true
@@ -47,10 +59,13 @@ export const commands: Array<Action> = [
 		action: [
 			'Adicionar um o cliente com o nome',
 			'Criar um cliente com o nome',
-			'Crie um cliente com o nome'
+			'Crie um cliente com o nome',
+			'Adicione um cliente com o nome',
+			'Adicione o cliente com o nome',
+			'Adicione o cliente'
 		],
 		command: {
-			name: '/goto-clientadd',
+			name: '/clientadd',
 			type: 'redirect',
 			code: 103,
 			description: 'Ir para clientes',
@@ -62,14 +77,20 @@ export const commands: Array<Action> = [
 					ordeneeIADialogResults.update((vs) => [...vs, `Procurando o nome do cliente...`]);
 
 					const splitedText = text.split(' ');
-					ordeneeIADialogResults.update((vs) => [...vs, `Estou quebrando o seu texto em pedaços...`]);
+					ordeneeIADialogResults.update((vs) => [
+						...vs,
+						`Estou quebrando o seu texto em pedaços...`
+					]);
 
 					const persons = result.filter((entities) => {
 						if (entities.label.includes('PERSON')) {
 							return splitedText.includes(entities.token);
 						}
 					});
-					ordeneeIADialogResults.update((vs) => [...vs, `Certo! Agora vamos adicionar o cliente...`]);
+					ordeneeIADialogResults.update((vs) => [
+						...vs,
+						`Certo! Agora vamos adicionar o cliente...`
+					]);
 
 					const mountName = persons.map((user) => {
 						return user.token;
@@ -83,13 +104,25 @@ export const commands: Array<Action> = [
 							tel_num: null,
 							is_technical: false
 						})
-					}).then((res) => {
-						ordeneeIADialogResults.update((vs) => [...vs, `Pronto! O cliente ${mountName.join(' ')} foi adicionado com sucesso! Vou lhe redirecionar para a página de clientes.`]);
+					})
+						.then((res) => {
+							ordeneeIADialogResults.update((vs) => [
+								...vs,
+								`Pronto! O cliente ${mountName.join(' ')} foi adicionado com sucesso! Vou lhe redirecionar para a página de clientes.`
+							]);
 
-						setTimeout(() => {
-							window.location.href = '/clients';
-						}, 4000)
-					});
+							setTimeout(() => {
+								window.location.href = '/clients';
+							}, 4000);
+						})
+						.catch((err) => {
+							console.error(err);
+							ordeneeIADialogResults.update((vs) => [
+								...vs,
+								`Ops, não consegui adicionar o cliente requisitado... Erro: ${err}`
+							]);
+							return;
+						});
 				});
 			}
 		},

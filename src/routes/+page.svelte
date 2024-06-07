@@ -26,7 +26,7 @@
 	</div>
 </section>
 <section
-	class="transition-all relative px-5 py-5 mx-5 z-10 border border-zinc-700 bg-gradient-to-bl from-zinc-600/10 to-purple-400/10 rounded-md mt-10 hover:drop-shadow-[0_0_200px_rgb(255,0,255,1)]"
+	class="transition-all relative px-5 py-5 mx-5 z-10 border border-zinc-700 bg-gradient-to-bl from-zinc-600/10 to-purple-400/10 rounded-md mt-10 drop-shadow-[0_0_170px_rgb(255,0,255,1)]"
 >
 	<section class="flex gap-3 text-3xl">
 		<h1>Acesso rapido</h1>
