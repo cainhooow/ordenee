@@ -87,6 +87,13 @@ export const commands: Array<Action> = [
 							return splitedText.includes(entities.token);
 						}
 					});
+<<<<<<< HEAD
+=======
+					ordeneeIADialogResults.update((vs) => [
+						...vs,
+						`Certo! Agora vamos adicionar o cliente...`
+					]);
+>>>>>>> d544b4c969274b51a91bb99209b516058185b7bd
 
 					const mountName = persons
 						.map((user) => {
@@ -124,7 +131,11 @@ export const commands: Array<Action> = [
 						.then((res) => {
 							ordeneeIADialogResults.update((vs) => [
 								...vs,
+<<<<<<< HEAD
 								`Pronto! O cliente ${mountName} foi adicionado com sucesso! Vou lhe redirecionar para a página de clientes.`
+=======
+								`Pronto! O cliente ${mountName.join(' ')} foi adicionado com sucesso! Vou lhe redirecionar para a página de clientes.`
+>>>>>>> d544b4c969274b51a91bb99209b516058185b7bd
 							]);
 
 							setTimeout(() => {
