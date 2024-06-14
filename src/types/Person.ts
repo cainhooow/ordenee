@@ -8,3 +8,17 @@ export type Person = {
     created_at: string,
     updated_at?: string
 }
+
+export type PersonAddress = {
+    id: number,
+    address: string,
+    home_num?: number,
+    street?: string,
+    city?: string,
+    person_id: number
+}
+
+export type ReturnablePerson = {
+    person: Person,
+    addresses: PersonAddress[]
+}

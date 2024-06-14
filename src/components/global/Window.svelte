@@ -6,6 +6,8 @@
 	import ActionHandled from './Dialogs/ActionHandled.dialog.svelte';
 	import { ordeneeIADialog } from '../../store';
 
+	import Ordenee from '../../assets/ic/icon.png';
+
 	let dialogVisible = false;
 
 	ordeneeIADialog.subscribe((vs) => (dialogVisible = vs));
@@ -34,7 +36,10 @@
 	data-tauri-drag-region="true"
 >
 	<div class="flex gap-3 items-center">
-		<a class="text-2xl border-r border-r-zinc-700 pr-2" href="/">Ordenee</a>
+		<a class="text-2xl border-r border-r-zinc-700 pr-3 flex gap-3 items-center bg-clip-text text-transparent bg-gradient-to-tr from-pink-300 to-violet-400 font-bold" href="/">
+			<img src={Ordenee} alt="Ordenee" class="w-7" />
+			Ordenee
+		</a>
 		<div class="flex gap-[0.1rem] items-center">
 			<div
 				class="relative px-2 ps-2 border border-transparent rounded group hover:bg-zinc-800/50 hover:border-zinc-700"

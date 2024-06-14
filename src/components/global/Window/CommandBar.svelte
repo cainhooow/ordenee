@@ -58,16 +58,20 @@
 	}
 </script>
 
-<div class="top-0 left-0 right-0 absolute p-2 bg-zinc-800 rounded border border-zinc-700 z-50">
+<div
+	class="transition-all top-0 left-0 right-0 absolute p-2 bg-zinc-800 rounded border border-zinc-700 z-50 drop-shadow-[0_0_1024px_rgb(0,255,100,0.5)]"
+>
 	<div class="flex gap-2">
 		<Input
 			id="command-bar"
-			class="p-1 w-full"
+			class="p-1 w-full transition-all"
 			placeholder="Busque comandos ou peça para a Ordenee AI"
 			oninput={searchHandled}
 		/>
 
-		<button on:click={search} class="rounded pr-3 pl-3 bg-purple-500 hover:bg-purple-700"
+		<button
+			on:click={search}
+			class="rounded pr-3 pl-3 bg-purple-500/50 border border-purple-400 hover:bg-purple-700 text-purple-200"
 			><i class="ri-corner-down-left-fill"></i></button
 		>
 	</div>

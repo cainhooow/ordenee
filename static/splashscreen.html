@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Ordenee</title>
+
+		<style>
+			body {
+				background-color: #1d1d1d;
+				font-family: 'Varela Round', sans-serif;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+                height: 100vh;
+                overflow: hidden;
+			}
+
+			img {
+				animation: shadow-pulse 5s infinite;
+				filter: drop-shadow(0 0 200px #c86aff);
+			}
+
+			h1 {
+				font-size: 6rem;
+				color: transparent;
+				-webkit-background-clip: text;
+				background-clip: text;
+				background-image: linear-gradient(20deg, #8528ff, #ffb7a1);
+				margin-top: 2rem;
+                animation: text-pulse 5s infinite;
+			}
+
+            @keyframes text-pulse {
+                0% {
+                    color: transparent;
+                }
+                50% {
+                    color: #c86aff;
+                }
+                100% {
+                    color: transparent;
+                }
+            }
+
+			@keyframes shadow-pulse {
+				0% {
+					filter: drop-shadow(0 0 150px #3b3b3b);
+				}
+				50% {
+					filter: drop-shadow(0 0 200px #c86aff);
+				}
+				100% {
+					filter: drop-shadow(0 0 150px #3b3b3b);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<img src="/android-chrome-512x512.png" alt="Ordenee icon ORDENEE AI" />
+		<h1>Ordenee</h1>
+	</body>
+</html>

@@ -1,4 +1,4 @@
-use common::database::{imp::persons::PersonsBase, models::Persons};
+use common::database::{imp::persons::{PersonsBase, ReturnableUser}, models::{PersonAddresses, Persons}};
 
 #[tauri::command]
 pub fn add_client(client: String) -> Result<Persons, ()> {
@@ -24,13 +24,12 @@ pub fn add_client(client: String) -> Result<Persons, ()> {
 }
 
 #[tauri::command]
-pub fn load_clients() -> Result<String, ()> {
+pub fn load_clients() -> Result<Vec<ReturnableUser>, ()> {
     println!(":ORDENNE:command:load_clients()");
 
     match Persons::all() {
         Ok(persons) => {
-            let message = serde_json::to_string(&persons).unwrap();
-            Ok(message)
+            Ok(persons)
         }
         Err(err) => {
             println!(":ORDENNE:command:load_clients excpetion {:?}", err);

@@ -1,7 +1,4 @@
-use common::database::{
-    imp::person_addresses::AddressBase,
-    models::{PersonAddresses, Persons},
-};
+use common::database::{imp::person_addresses::AddressBase, models::PersonAddresses};
 
 #[tauri::command]
 pub fn create_address(address: String) -> Result<PersonAddresses, String> {

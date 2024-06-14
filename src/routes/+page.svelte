@@ -1,5 +1,7 @@
 <script lang="ts">
 	import Anchor from '../components/ui/Button/Anchor.svelte';
+	import IconAnchor from '../components/ui/Button/IconAnchor.svelte';
+
 	import { OrdeneeNer } from '../utils/ordenee/OrdeneeNer';
 </script>
 
@@ -26,18 +28,84 @@
 	</div>
 </section>
 <section
-	class="transition-all relative px-5 py-5 mx-5 z-10 border border-zinc-700 bg-gradient-to-bl from-zinc-600/10 to-purple-400/10 rounded-md mt-10 drop-shadow-[0_0_170px_rgb(255,0,255,1)]"
+	class="transition-all relative px-5 py-5 mx-5 z-10 border border-zinc-700 bg-gradient-to-bl from-zinc-600/10 to-purple-400/10 rounded-md mt-10 drop-shadow-[0_0_170px_rgb(255,0,255,1)] mb-20"
 >
 	<section class="flex gap-3 text-3xl">
 		<h1>Acesso rapido</h1>
 	</section>
 	<section class="flex flex-wrap basis-10 p-2 gap-3 pt-5 pb-5">
-		<Anchor href="/clients" type="button">
-			<i class="ri-team-fill"></i>
+		<IconAnchor
+			class="transition-all bg-purple-700/20 border-purple-800 text-purple-200 hover:border-purple-600 hover:text-purple-100"
+			href="/clients"
+		>
+			<div class="bg-purple-200 text-purple-900 pr-1 pl-1 rounded" slot="icon">
+				<i class="ri-team-fill"></i>
+			</div>
 			Clientes
-		</Anchor>
+		</IconAnchor>
 
-		<Anchor href="/equipaments/new-equipament" type="button">
+		<IconAnchor
+			class="transition-all bg-purple-700/20 border-purple-800 text-purple-200 hover:border-purple-600 hover:text-purple-100"
+			href="/equipaments"
+		>
+			<div class="bg-purple-200 text-purple-900 pr-1 pl-1 rounded" slot="icon">
+				<i class="ri-briefcase-2-line"></i>
+			</div>
+			Equipamentos
+		</IconAnchor>
+
+		<IconAnchor
+			class="transition-all bg-purple-700/20 border-purple-800 text-purple-200 hover:border-purple-600 hover:text-purple-100"
+			href="/paymentmethods"
+		>
+			<div class="bg-purple-200 text-purple-900 pr-1 pl-1 rounded" slot="icon">
+				<i class="ri-bank-card-line"></i>
+			</div>
+			Formas de pagamento
+		</IconAnchor>
+
+		<IconAnchor
+			class="transition-all bg-purple-700/20 border-purple-800 text-purple-200 hover:border-purple-600 hover:text-purple-100"
+			href="/orders"
+		>
+			<div class="bg-purple-200 text-purple-900 pr-1 pl-1 rounded" slot="icon">
+				<i class="ri-article-line"></i>
+			</div>
+			Ordens
+		</IconAnchor>
+
+		<IconAnchor
+			class="transition-all bg-purple-700/20 border-purple-800 text-purple-200 hover:border-purple-600 hover:text-purple-100"
+			href="/work"
+		>
+			<div class="bg-purple-200 text-purple-900 pr-1 pl-1 rounded" slot="icon">
+				<i class="ri-shake-hands-line"></i>
+			</div>
+			Empresa
+		</IconAnchor>
+
+		<IconAnchor href="/equipaments/new-equipament" class="transition-all bg-purple-700/20 border-purple-800 text-purple-200 hover:border-purple-600 hover:text-purple-100">
+			<div class="bg-purple-200 text-purple-900 pr-1 pl-1 rounded" slot="icon">
+				<i class="ri-briefcase-2-line"></i>
+			</div>
+			Adicionar equipamento
+		</IconAnchor>
+
+		<IconAnchor href="/clients/new-client" class="transition-all bg-purple-700/20 border-purple-800 text-purple-200 hover:border-purple-600 hover:text-purple-100">
+			<div class="bg-purple-200 text-purple-900 pr-1 pl-1 rounded" slot="icon">
+				<i class="ri-team-fill"></i>
+			</div>
+			Adicionar cliente
+		</IconAnchor>
+
+		<IconAnchor href="/orders/new-order" class="transition-all bg-purple-700/20 border-purple-800 text-purple-200 hover:border-purple-600 hover:text-purple-100">
+			<div class="bg-purple-200 text-purple-900 pr-1 pl-1 rounded" slot="icon">
+				<i class="ri-article-line"></i>
+			</div>
+			Nova OS
+		</IconAnchor>
+
+		<!-- <Anchor href="/equipaments/new-equipament" type="button">
 			<i class="ri-briefcase-2-line"></i>
 			Adicionar equipamento
 		</Anchor>
@@ -65,6 +133,6 @@
 		<Anchor href="/work" type="button">
 			<i class="ri-shake-hands-line"></i>
 			Empresa
-		</Anchor>
+		</Anchor> -->
 	</section>
 </section>

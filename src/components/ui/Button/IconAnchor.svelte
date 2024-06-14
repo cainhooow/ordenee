@@ -8,7 +8,7 @@
 	props.class = [props.class, 'border pr-4 pl-4 py-2 rounded flex gap-2 items-center'].join(' ');
 </script>
 
-<button {...$$restProps}>
+<a {...$$restProps}>
 	<slot name="icon"></slot>
     <slot/>
-</button>
+</a>

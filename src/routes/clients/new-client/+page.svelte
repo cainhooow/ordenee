@@ -7,7 +7,7 @@
 	import ErrorClientAdd from '../../../components/global/Dialogs/CommonError.dialog.empt.svelte';
 
 	import type { Person } from '../../../types/Person';
-	import { invoke } from '@tauri-apps/api';
+	import { invoke } from '@tauri-apps/api/core';
 	import { crossfade } from 'svelte/transition';
 	import { quintIn } from 'svelte/easing';
 	import { flip } from 'svelte/animate';
@@ -92,7 +92,7 @@
 			.then(async (res: unknown | Person) => {
 				const user = res as Person;
 
-				if (allowedAddress.length >= 0) {
+				if (allowedAddress.length > 0) {
 					allowedAddress.map(async (address) => {
 						await invoke('create_address', {
 							address: JSON.stringify({ person_id: user.id, ...address })
@@ -104,7 +104,6 @@
 								console.error(err);
 							});
 					});
-
 					return;
 				}
 
@@ -265,14 +264,14 @@
 		{/each}
 		<div class="flex justify-end mt-5 gap-3">
 			{#if addresses.length > 0}
-				<IconButton onclick={rmAddress} class="bg-rose-400/20 border-rose-400 text-rose-100">
+				<IconButton onclick={rmAddress} class="bg-rose-400/20 border-red-200 text-rose-100">
 					<div class="bg-rose-200 text-rose-900 pr-1 pl-1 rounded" slot="icon">
 						<i class="ri-delete-bin-2-line"></i>
 					</div>
 					Remover ultimo
 				</IconButton>
 			{/if}
-			<IconButton onclick={addAddress} class="bg-lime-700/20 border-lime-700 text-lime-200">
+			<IconButton onclick={addAddress} class="bg-lime-700/20 border-lime-800 text-lime-200">
 				<div class="bg-lime-200 text-lime-900 pr-1 pl-1 rounded" slot="icon">
 					<i class="ri-map-pin-add-line"></i>
 				</div>

@@ -1,16 +1,19 @@
 use std::vec;
 
 use diesel::{
-    prelude::Insertable, result::Error, ExpressionMethods, QueryDsl, RunQueryDsl, SelectableHelper,
+    prelude::Insertable, result::Error, BelongingToDsl, ExpressionMethods, QueryDsl, RunQueryDsl,
+    SelectableHelper,
 };
 
 use serde::{Deserialize, Serialize};
 
 use crate::database::{
     models::Persons,
-    schema::{self},
+    schema::{self, persons},
     Database,
 };
+
+use crate::database::models::PersonAddresses;
 
 #[derive(Insertable, Serialize, Deserialize)]
 #[diesel(table_name = schema::persons)]
@@ -20,6 +23,12 @@ pub struct PersonsBase<'r> {
     pub tel_num: Option<&'r str>,
     pub person_id: Option<&'r str>,
     pub is_technical: Option<bool>,
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct ReturnableUser {
+    pub person: Persons,
+    pub address: Vec<PersonAddresses>,
 }
 
 impl Persons {
@@ -42,7 +51,7 @@ impl Persons {
                     .order(id.desc())
                     .first::<i32>(&mut connection)?;
 
-                let person = Self::person(last_person)?;
+                let person = Self::person(last_person)?.person;
 
                 Ok(person)
             }
@@ -52,33 +61,57 @@ impl Persons {
             }
         }
     }
-    pub fn person(person: i32) -> Result<Persons, Error> {
+    pub fn person(person: i32) -> Result<ReturnableUser, Error> {
         use self::schema::persons::dsl::*;
-        use self::schema::persons::*;
+        use self::schema::persons::id as user_id;
 
         let database = Database::init();
         let mut connection = database.connection;
 
-        match persons
-            .filter(id.eq(person))
+        let user = persons
+            .filter(user_id.eq(person))
             .select(Persons::as_select())
-            .get_result(&mut connection)
+            .first::<Persons>(&mut connection)?;
+
+        match PersonAddresses::belonging_to(&user)
+            .select(PersonAddresses::as_select())
+            .load::<PersonAddresses>(&mut connection)
         {
-            Ok(person) => Ok(person),
-            Err(err) => Err(err),
+            Ok(res) => Ok(ReturnableUser {
+                person: user,
+                address: res,
+            }),
+            Err(err) => {
+                println!(":ORDENNE:database:client:person() exception: {:?}", err);
+                Err(err)
+            }
         }
     }
 
-    pub fn all() -> Result<Vec<Persons>, Error> {
-        use self::schema::persons;
-
+    pub fn all() -> Result<Vec<ReturnableUser>, Error> {
         let database = Database::init();
         let mut connection = database.connection;
 
-        match persons::table.get_results::<Persons>(&mut connection) {
+        match persons::table
+            .select(Persons::as_select())
+            .get_results::<Persons>(&mut connection)
+        {
             Ok(res) => {
-                println!(":ORDENNE:database:client:all() {:?}", res);
-                Ok(res)
+                let complete_user = res
+                    .into_iter()
+                    .map(|client| {
+                        let addresses = PersonAddresses::belonging_to(&client)
+                            .select(PersonAddresses::as_select())
+                            .load::<PersonAddresses>(&mut connection)
+                            .unwrap();
+                        ReturnableUser {
+                            person: client,
+                            address: addresses,
+                        }
+                    })
+                    .collect::<Vec<ReturnableUser>>();
+
+                Ok(complete_user)
             }
             Err(err) => {
                 println!(":ORDENNE:database:client:all() exception: {:?}", err);

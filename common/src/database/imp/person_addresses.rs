@@ -8,7 +8,6 @@ use serde::{Deserialize, Serialize};
 
 use crate::database::{models::PersonAddresses, schema, Database};
 
-use super::persons::PersonsBase;
 
 #[derive(Insertable, Serialize, Deserialize)]
 #[diesel(table_name = schema::personaddresses)]

@@ -1,6 +1,6 @@
 import type { Action } from '../../types/Command/Action';
-import { appWindow } from '@tauri-apps/api/window';
-import { invoke } from '@tauri-apps/api';
+import *as webviewWindow from '@tauri-apps/api/webviewWindow';
+import { invoke } from '@tauri-apps/api/core';
 import { OrdeneeNer } from '../ordenee/OrdeneeNer';
 import { ordeneeIADialog, ordeneeIADialogResults } from '../../store';
 
@@ -87,13 +87,6 @@ export const commands: Array<Action> = [
 							return splitedText.includes(entities.token);
 						}
 					});
-<<<<<<< HEAD
-=======
-					ordeneeIADialogResults.update((vs) => [
-						...vs,
-						`Certo! Agora vamos adicionar o cliente...`
-					]);
->>>>>>> d544b4c969274b51a91bb99209b516058185b7bd
 
 					const mountName = persons
 						.map((user) => {
@@ -131,11 +124,7 @@ export const commands: Array<Action> = [
 						.then((res) => {
 							ordeneeIADialogResults.update((vs) => [
 								...vs,
-<<<<<<< HEAD
 								`Pronto! O cliente ${mountName} foi adicionado com sucesso! Vou lhe redirecionar para a página de clientes.`
-=======
-								`Pronto! O cliente ${mountName.join(' ')} foi adicionado com sucesso! Vou lhe redirecionar para a página de clientes.`
->>>>>>> d544b4c969274b51a91bb99209b516058185b7bd
 							]);
 
 							setTimeout(() => {
@@ -208,7 +197,7 @@ export const commands: Array<Action> = [
 			code: 0,
 			description: 'Close app',
 			async run() {
-				await appWindow.close();
+				await webviewWindow.getCurrent().close();
 			}
 		},
 		filtable: false

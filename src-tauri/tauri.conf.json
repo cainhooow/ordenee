@@ -2,69 +2,48 @@
   "build": {
     "beforeBuildCommand": "npm run build",
     "beforeDevCommand": "npm run dev",
-    "devPath": "http://localhost:5173",
-    "distDir": "../build"
+    "frontendDist": "../build",
+    "devUrl": "http://localhost:5173"
   },
-  "package": {
-    "productName": "ordenne",
-    "version": "0.0.8"
-  },
-  "tauri": {
-    "allowlist": {
-      "all": false,
-      "window": {
-        "all": false,
-        "close": true,
-        "hide": true,
-        "show": true,
-        "maximize": true,
-        "minimize": true,
-        "unmaximize": true,
-        "unminimize": true,
-        "startDragging": true
-      }
+  "bundle": {
+    "active": true,
+    "category": "Productivity",
+    "copyright": "",
+    "targets": "all",
+    "externalBin": [],
+    "icon": [
+      "icons/icon.png",
+      "icons/icon.png",
+      "icons/icon.png",
+      "icons/icon.icns",
+      "icons/ordenee.ico"
+    ],
+    "windows": {
+      "certificateThumbprint": null,
+      "digestAlgorithm": "sha256",
+      "timestampUrl": ""
     },
-    "bundle": {
-      "active": true,
-      "category": "Productivity",
-      "copyright": "",
+    "longDescription": "",
+    "macOS": {
+      "entitlements": null,
+      "exceptionDomain": "",
+      "frameworks": [],
+      "providerShortName": null,
+      "signingIdentity": null
+    },
+    "resources": [],
+    "shortDescription": "",
+    "linux": {
       "deb": {
         "depends": []
-      },
-      "externalBin": [
-        
-       ],
-      "icon": [
-        "icons/icon.png",
-        "icons/icon.png",
-        "icons/icon.png",
-        "icons/icon.icns",
-        "icons/ordenee.ico"
-      ],
-      "identifier": "drkryz.ordenee",
-      "longDescription": "",
-      "macOS": {
-        "entitlements": null,
-        "exceptionDomain": "",
-        "frameworks": [],
-        "providerShortName": null,
-        "signingIdentity": null
-      },
-      "resources": [],
-      "shortDescription": "",
-      "targets": "all",
-      "windows": {
-        "certificateThumbprint": null,
-        "digestAlgorithm": "sha256",
-        "timestampUrl": ""
       }
-    },
-    "security": {
-      "csp": null
-    },
-    "updater": {
-      "active": false
-    },
+    }
+  },
+  "productName": "ordenee",
+  "version": "0.0.8",
+  "identifier": "drkryz.ordenee",
+  "plugins": {},
+  "app": {
     "windows": [
       {
         "fullscreen": false,
@@ -73,8 +52,27 @@
         "decorations": false,
         "title": "Ordenne",
         "transparent": true,
-        "width": 800
+        "width": 800,
+        "visible": false,
+        "label": "main",
+        "windowEffects": {
+          "effects": [
+            "acrylic"
+          ],
+          "radius": 9
+        }
+      },
+      {
+        "width": 800,
+        "height": 800,
+        "decorations": false,
+        "resizable": false,
+        "url": "splashscreen.html",
+        "label": "splashscreen"
       }
-    ]
+    ],
+    "security": {
+      "csp": null
+    }
   }
 }

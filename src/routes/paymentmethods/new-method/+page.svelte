@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ClientHeader from '../../../components/clients/ClientHeader.svelte';
-	import { invoke } from '@tauri-apps/api';
+	import { invoke } from '@tauri-apps/api/core';
 
 	import Button from '../../../components/ui/Button/Button.svelte';
 	import FloatingInput from '../../../components/ui/Input/FloatingInput.svelte';

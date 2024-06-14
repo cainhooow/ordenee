@@ -2,10 +2,11 @@
 	import ClientHeader from '../../components/clients/ClientHeader.svelte';
 	import ClientCard from '../../components/clients/ClientCard.svelte';
 	import Anchor from '../../components/ui/Button/Anchor.svelte';
-	import type { Person } from '../../types/Person';
+	import type { Person, ReturnablePerson } from '../../types/Person';
+	import IconAnchor from '../../components/ui/Button/IconAnchor.svelte';
 
 	export let data;
-	const clientsList = (data.clients as Person[]) ?? [];
+	const clientsList = (data.clients as ReturnablePerson[]) ?? [];
 	let clients = clientsList;
 
 	function search(ev: any) {
@@ -13,20 +14,22 @@
 
 		clients = clientsList.filter(
 			(client) =>
-				client.name.includes(val) ||
-				client.email?.includes(val) ||
-				client.tel_num?.toString().includes(val) ||
-				client.person_id?.includes(val)
+				client.person.name.includes(val) ||
+				client.person.email?.includes(val) ||
+				client.person.tel_num?.toString().includes(val) ||
+				client.person.person_id?.includes(val)
 		);
 	}
 </script>
 
 <ClientHeader title={'Clientes'}>
 	<div slot="buttons-actions">
-		<Anchor href="/clients/new-client" type="button">
-			<i class="ri-id-card-line"></i>
-			Adicionar novo cliente
-		</Anchor>
+		<IconAnchor class="transition-all bg-purple-700/20 border-purple-800 text-purple-200 hover:border-purple-600 hover:text-purple-100" href="/clients/new-client">
+			<div class="bg-purple-200 text-purple-900 pr-1 pl-1 rounded" slot="icon">
+				<i class="ri-id-card-line"></i>
+			</div>
+			Adicionar cliente
+		</IconAnchor>
 	</div>
 </ClientHeader>
 <section class="p-3 flex flex-col gap-2 mt-5 mb-10">
@@ -40,7 +43,7 @@
 			placeholder="Buscar cliente"
 		/>
 	</div>
-	{#each clients as client (client.id)}
-		<ClientCard {client}/>
+	{#each clients as client (client.person.id)}
+		<ClientCard client={client.person} />
 	{/each}
 </section>
